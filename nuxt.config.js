@@ -9,7 +9,9 @@ const envVars = process.env.DEPLOY_ENV === 'GH_PAGES' || process.env.DEPLOY_ENV 
     FIREBASE_DATABASE_URL: 'https://nwplus-ubc.firebaseio.com',
     FIREBASE_PROJECT_ID: 'nwplus-ubc',
     FIREBASE_STORAGE_BUCKET: 'nwplus-ubc.appspot.com',
-    FIREBASE_MESSAGING_SENDER_ID: '306881258768'
+    FIREBASE_MESSAGING_SENDER_ID: '306881258768',
+    appId: '1:306881258768:web:bc922148732abee79f7195',
+    measurementId: 'G-BT2W7DSL1G'
   }
 } : {
   env: {}
