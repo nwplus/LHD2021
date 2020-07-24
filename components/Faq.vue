@@ -72,7 +72,6 @@ export default {
   computed: {
     // Have "What is a hackathon?" as the first question
     prioritizeQuestion() {
-      console.log(this.items)
       return [...this.items].sort((a, b) => {
         if (a.question === 'What is a hackathon?') {
           return -1
