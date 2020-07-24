@@ -10,13 +10,13 @@
         <p class="label">
           General
         </p>
-        <div v-for="item in sortedItems" :key="`General-${item.question}`">
-          <div v-if="item.selected && item.category == 'General'">
+        <div v-for="item in prioritizeQuestion" :key="`General-${item.Question}`">
+          <div v-if="item.Category == 'General'">
             <button @click="openSesame" class="accordion">
-              {{ item.question }}
+              {{ item.Question }}
             </button>
             <div class="panel">
-              <p>{{ item.answer }}</p>
+              <p>{{ item.Answer }}</p>
             </div>
           </div>
         </div>
@@ -29,13 +29,13 @@
         <p class="label">
           Teams &amp; Projects
         </p>
-        <div v-for="item in items" :key="`Teams-${item.question}`">
-          <div v-if="item.selected && item.category == 'Teams'">
+        <div v-for="item in items" :key="`Teams-${item.Question}`">
+          <div v-if="item.Category == 'Teams'">
             <button @click="openSesame" class="accordion">
-              {{ item.question }}
+              {{ item.Question }}
             </button>
             <div class="panel">
-              <p>{{ item.answer }}</p>
+              <p>{{ item.Answer }}</p>
             </div>
           </div>
         </div>
@@ -44,13 +44,13 @@
         <p class="label">
           Logistics
         </p>
-        <div v-for="item in items" :key="`Logistics-${item.question}`">
-          <div v-if="item.selected && item.category == 'Logistics'">
+        <div v-for="item in items" :key="`Logistics-${item.Question}`">
+          <div v-if="item.Category == 'Logistics'">
             <button @click="openSesame" class="accordion">
-              {{ item.question }}
+              {{ item.Question }}
             </button>
             <div class="panel">
-              <p>{{ item.answer }}</p>
+              <p>{{ item.Answer }}</p>
             </div>
           </div>
         </div>
@@ -70,11 +70,12 @@ export default {
     }
   },
   computed: {
-    sortedItems() {
+    // Have "What is a hackathon?" as the first question
+    prioritizeQuestion() {
       return [...this.items].sort((a, b) => {
-        if (a.question === 'What is a hackathon?') {
+        if (a.Question === 'What is a hackathon?') {
           return -1
-        } else if (b.question === 'What is a hackathon?') {
+        } else if (b.Question === 'What is a hackathon?') {
           return 1
         } else {
           return 0
@@ -97,5 +98,58 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+@import "bulma/bulma.sass";
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+.title {
+  text-align: center;
+  font-family: "HK Grotesk Regular";
+  font-size: 48px;
+  color: black;
+}
+.label {
+  font-family: "HK Grotesk Regular";
+  color: black;
+  font-size: 20px;
+}
+//Desktop CSS:
+.accordion {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  margin: 10px auto;
+  text-align: left;
+  outline: none;
+  border: 1.3px solid black;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: "HK Grotesk Regular";
+}
+.accordion.active {
+  border-bottom: none;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin-bottom: 0px;
+}
+.panel {
+  padding: 18px;
+  padding-top: 0;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+  border: 1.3px solid black;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 2%;
+  width: 100%;
+}
+//Mobile CSS:
+@include until($desktop) {
+}
 </style>
