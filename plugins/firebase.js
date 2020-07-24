@@ -29,7 +29,7 @@ const fireDb = {
     let ref, data
     if (collection.toUpperCase() === 'FAQ') {
       ref = db.collection('FAQ')
-        .where('HackathonID', 'array-contains', HACKATHON_ID)
+        .where('hackathonIDs', 'array-contains', HACKATHON_ID)
     } else {
       ref = db.collection(HACKATHONS)
         .doc(HACKATHON_ID)

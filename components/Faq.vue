@@ -10,13 +10,13 @@
         <p class="label">
           General
         </p>
-        <div v-for="item in prioritizeQuestion" :key="`General-${item.Question}`">
-          <div v-if="item.Category == 'General'">
+        <div v-for="item in prioritizeQuestion" :key="`General-${item.question}`">
+          <div v-if="item.category == 'General'">
             <button @click="openSesame" class="accordion">
-              {{ item.Question }}
+              {{ item.question }}
             </button>
             <div class="panel">
-              <p>{{ item.Answer }}</p>
+              <p>{{ item.answer }}</p>
             </div>
           </div>
         </div>
@@ -29,13 +29,13 @@
         <p class="label">
           Teams &amp; Projects
         </p>
-        <div v-for="item in items" :key="`Teams-${item.Question}`">
-          <div v-if="item.Category == 'Teams'">
+        <div v-for="item in items" :key="`Teams-${item.question}`">
+          <div v-if="item.category == 'Teams'">
             <button @click="openSesame" class="accordion">
-              {{ item.Question }}
+              {{ item.question }}
             </button>
             <div class="panel">
-              <p>{{ item.Answer }}</p>
+              <p>{{ item.answer }}</p>
             </div>
           </div>
         </div>
@@ -44,13 +44,13 @@
         <p class="label">
           Logistics
         </p>
-        <div v-for="item in items" :key="`Logistics-${item.Question}`">
-          <div v-if="item.Category == 'Logistics'">
+        <div v-for="item in items" :key="`Logistics-${item.question}`">
+          <div v-if="item.category == 'Logistics'">
             <button @click="openSesame" class="accordion">
-              {{ item.Question }}
+              {{ item.question }}
             </button>
             <div class="panel">
-              <p>{{ item.Answer }}</p>
+              <p>{{ item.answer }}</p>
             </div>
           </div>
         </div>
@@ -72,10 +72,11 @@ export default {
   computed: {
     // Have "What is a hackathon?" as the first question
     prioritizeQuestion() {
+      console.log(this.items)
       return [...this.items].sort((a, b) => {
-        if (a.Question === 'What is a hackathon?') {
+        if (a.question === 'What is a hackathon?') {
           return -1
-        } else if (b.Question === 'What is a hackathon?') {
+        } else if (b.question === 'What is a hackathon?') {
           return 1
         } else {
           return 0
