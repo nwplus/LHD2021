@@ -1,54 +1,54 @@
 <template>
   <div class="container">
     <h1 class="faq-title">
-      FAQ
+      Frequently Asked Questions
     </h1>
     <div class="columns">
       <!-- Left column begin -->
       <div class="column is-half is-multiline">
-        <!--  -->
+        <!-- Common begin -->
         <p class="label">
-          General
+          Common
         </p>
-        <div v-for="qna in filterQna('General')" :key="`General-${qna.question}`">
+        <div v-for="faq in filterFaq('Common')" :key="`Common-${faq.question}`">
           <button @click="toggleBox" class="accordion">
-            {{ qna.question }}
+            {{ faq.question }}
           </button>
           <div class="panel">
-            <p>{{ qna.answer }}</p>
+            <p>{{ faq.answer }}</p>
           </div>
         </div>
-        <!--  -->
+        <!-- Common end -->
       </div>
       <!-- Left column end -->
       <!-- Right column begin -->
       <div class="column is-half is-multiline">
-        <!-- logistics start -->
+        <!-- Learn Day start -->
         <p class="label">
-          Teams &amp; Projects
+          Learn Day
         </p>
-        <div v-for="qna in filterQna('Teams')" :key="`Teams-${qna.question}`">
+        <div v-for="faq in filterFaq('Learn Day')" :key="`LearnDay-${faq.question}`">
           <button @click="toggleBox" class="accordion">
-            {{ qna.question }}
+            {{ faq.question }}
           </button>
           <div class="panel">
-            <p>{{ qna.answer }}</p>
+            <p>{{ faq.answer }}</p>
           </div>
         </div>
-        <!-- logistics end -->
-        <!-- logistics 2 start -->
+        <!-- Learn Day end -->
+        <!-- Build Day start -->
         <p class="label">
-          Logistics
+          Build Day
         </p>
-        <div v-for="qna in filterQna('Logistics')" :key="`Logistics-${qna.question}`">
+        <div v-for="faq in filterFaq('Build Day')" :key="`BuildDay-${faq.question}`">
           <button @click="toggleBox" class="accordion">
-            {{ qna.question }}
+            {{ faq.question }}
           </button>
           <div class="panel">
-            <p>{{ qna.answer }}</p>
+            <p>{{ faq.answer }}</p>
           </div>
         </div>
-        <!-- logistics 2 end -->
+        <!-- Build Day end -->
       </div>
       <!-- Right column end -->
     </div>
@@ -65,7 +65,7 @@ export default {
   },
   data() {
     return {
-      data: this.prioritizeQuestion()
+      faqs: this.prioritizeQuestion()
     }
   },
   methods: {
@@ -78,13 +78,13 @@ export default {
         panel.style.display = 'block'
       }
     },
-    filterQna(category) {
-      return this.data.filter(i => i.category === category)
+    filterFaq(category) {
+      return this.faqs.filter(i => i.category === category)
     },
     prioritizeQuestion() {
       // Have "What is a hackathon?" as the first question
       this.items.forEach((item, index, object) => {
-        if (item.question === 'What is a hackathon?') {
+        if (item.question === 'What is Learn Day?' || item.question === 'What is Build Day?') {
           object.splice(index, 1)
           this.items = [item, ...this.items]
         }
