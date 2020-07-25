@@ -116,7 +116,9 @@
           >Become a Sponsor</a>
         </p>
         <p class="copyright-text">
-          Organized and held by nwPlus Copyright © cmd-f 2020
+          Organized and held by nwPlus
+          <br>
+          Copyright © UBC Local Hack Day 2020
         </p>
       </div>
     </div>
@@ -124,21 +126,42 @@
 </template>
 
 <script>
-export default {
-  props: {
-    text: {
-      type: String,
-      default: 'Organized and held by nwPlus. Copyright © nwHacks 2019'
-    }
-  },
-  data() {
-    return {
-      splitText: this.text.split('.')
-    }
-  }
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
+  @import "bulma/bulma.sass";
+  //Desktop CSS:
+  .footer-content {
+    text-align: center;
+    min-width: 90vw;
+  }
 
+  .join-us-section {
+    width: 60%;
+    margin: 25px auto;
+  }
+
+  .links {
+    margin: 15px;
+  }
+
+  .links a {
+    margin: 20px;
+    text-decoration: underline;
+  }
+
+  svg {
+    height: 30px;
+    width: 90px;
+  }
+
+  svg path {
+    fill: #2f4246;
+    transition-duration: 0.2s;
+  }
+
+  svg:hover path {
+    fill: #969d8d;
+  }
 </style>
