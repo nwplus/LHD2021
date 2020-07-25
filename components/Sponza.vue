@@ -37,6 +37,7 @@
 <script>
 import SponsorImage from '~/components/SponsorImage'
 import BecomeSponsorButton from '~/components/becomeSponsorButton'
+
 export default {
   components: { SponsorImage, BecomeSponsorButton },
   props: {
@@ -66,5 +67,38 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "bulma/bulma.sass";
 
+  //Desktop CSS:
+  .sponsor-title {
+    font-size: 40px;
+  }
+
+  .sponsorCategory {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sponsorWrapper {
+    margin: 30px;
+  }
+
+  .sponza {
+    margin-top: 2%;
+    text-align: center;
+  }
+
+  //Mobile CSS:
+  @include until($tablet) {
+    .sponsorCategory {
+      flex-direction: column;
+    }
+    .sponsorWrapper {
+      max-width: 300px;
+      margin: 15px;
+    }
+  }
 </style>
