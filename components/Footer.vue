@@ -164,4 +164,30 @@ export default {}
   svg:hover path {
     fill: #969d8d;
   }
+
+  //Mobile CSS:
+  @include until($desktop) {
+    .links {
+      margin: 7px;
+    }
+
+    .footer-content {
+      font-size: 12px;
+    }
+
+    .links a {
+      margin: 10px;
+    }
+
+    svg {
+      height: 26px;
+      width: 60px;
+    }
+  }
+
+  @include until($tablet) {
+    .join-us-section {
+      width: 85vw;
+    }
+  }
 </style>
