@@ -10,14 +10,12 @@
         <p class="label">
           General
         </p>
-        <div v-for="item in prioritizeQuestion" :key="`General-${item.question}`">
-          <div v-if="item.category == 'General'">
-            <button @click="openSesame" class="accordion">
-              {{ item.question }}
-            </button>
-            <div class="panel">
-              <p>{{ item.answer }}</p>
-            </div>
+        <div v-for="qna in filterQna('General')" :key="`General-${qna.question}`">
+          <button @click="toggleBox" class="accordion">
+            {{ qna.question }}
+          </button>
+          <div class="panel">
+            <p>{{ qna.answer }}</p>
           </div>
         </div>
         <!--  -->
@@ -29,14 +27,12 @@
         <p class="label">
           Teams &amp; Projects
         </p>
-        <div v-for="item in items" :key="`Teams-${item.question}`">
-          <div v-if="item.category == 'Teams'">
-            <button @click="openSesame" class="accordion">
-              {{ item.question }}
-            </button>
-            <div class="panel">
-              <p>{{ item.answer }}</p>
-            </div>
+        <div v-for="qna in filterQna('Teams')" :key="`Teams-${qna.question}`">
+          <button @click="toggleBox" class="accordion">
+            {{ qna.question }}
+          </button>
+          <div class="panel">
+            <p>{{ qna.answer }}</p>
           </div>
         </div>
         <!-- logistics end -->
@@ -44,14 +40,12 @@
         <p class="label">
           Logistics
         </p>
-        <div v-for="item in items" :key="`Logistics-${item.question}`">
-          <div v-if="item.category == 'Logistics'">
-            <button @click="openSesame" class="accordion">
-              {{ item.question }}
-            </button>
-            <div class="panel">
-              <p>{{ item.answer }}</p>
-            </div>
+        <div v-for="qna in filterQna('Logistics')" :key="`Logistics-${qna.question}`">
+          <button @click="toggleBox" class="accordion">
+            {{ qna.question }}
+          </button>
+          <div class="panel">
+            <p>{{ qna.answer }}</p>
           </div>
         </div>
         <!-- logistics 2 end -->
@@ -69,22 +63,13 @@ export default {
       required: true
     }
   },
-  computed: {
-    // Have "What is a hackathon?" as the first question
-    prioritizeQuestion() {
-      return [...this.items].sort((a, b) => {
-        if (a.question === 'What is a hackathon?') {
-          return -1
-        } else if (b.question === 'What is a hackathon?') {
-          return 1
-        } else {
-          return 0
-        }
-      })
+  data() {
+    return {
+      data: this.prioritizeQuestion()
     }
   },
   methods: {
-    openSesame: (e) => {
+    toggleBox: (e) => {
       e.target.classList.toggle('active')
       const panel = e.target.nextElementSibling
       if (panel.style.display === 'block') {
@@ -92,6 +77,19 @@ export default {
       } else {
         panel.style.display = 'block'
       }
+    },
+    filterQna(category) {
+      return this.data.filter(i => i.category === category)
+    },
+    prioritizeQuestion() {
+      // Have "What is a hackathon?" as the first question
+      this.items.forEach((item, index, object) => {
+        if (item.question === 'What is a hackathon?') {
+          object.splice(index, 1)
+          this.items = [item, ...this.items]
+        }
+      })
+      return this.items
     }
   }
 }
