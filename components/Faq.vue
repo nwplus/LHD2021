@@ -4,13 +4,8 @@
       Frequently Asked Questions
     </h1>
     <div class="columns">
-      <!-- Left column begin -->
-      <div class="column is-half is-multiline">
-        <!-- Common begin -->
-        <p class="label">
-          Common
-        </p>
-        <div v-for="faq in filterFaq('Common')" :key="`Common-${faq.question}`">
+      <div class="column is-half">
+        <div v-for="faq in leftFaqs" :key="`Common-${faq.question}`">
           <button @click="toggleBox" class="accordion">
             {{ faq.question }}
           </button>
@@ -18,16 +13,9 @@
             <p>{{ faq.answer }}</p>
           </div>
         </div>
-        <!-- Common end -->
       </div>
-      <!-- Left column end -->
-      <!-- Right column begin -->
-      <div class="column is-half is-multiline">
-        <!-- Learn Day start -->
-        <p class="label">
-          Learn Day
-        </p>
-        <div v-for="faq in filterFaq('Learn Day')" :key="`LearnDay-${faq.question}`">
+      <div class="column is-half">
+        <div v-for="faq in rightFaqs" :key="`Common-${faq.question}`">
           <button @click="toggleBox" class="accordion">
             {{ faq.question }}
           </button>
@@ -35,22 +23,7 @@
             <p>{{ faq.answer }}</p>
           </div>
         </div>
-        <!-- Learn Day end -->
-        <!-- Build Day start -->
-        <p class="label">
-          Build Day
-        </p>
-        <div v-for="faq in filterFaq('Build Day')" :key="`BuildDay-${faq.question}`">
-          <button @click="toggleBox" class="accordion">
-            {{ faq.question }}
-          </button>
-          <div class="panel">
-            <p>{{ faq.answer }}</p>
-          </div>
-        </div>
-        <!-- Build Day end -->
       </div>
-      <!-- Right column end -->
     </div>
   </div>
 </template>
@@ -65,7 +38,8 @@ export default {
   },
   data() {
     return {
-      faqs: this.prioritizeQuestion()
+      leftFaqs: this.getFaqColumn(true),
+      rightFaqs: this.getFaqColumn(false)
     }
   },
   methods: {
@@ -78,13 +52,18 @@ export default {
         panel.style.display = 'block'
       }
     },
-    filterFaq(category) {
-      return this.faqs.filter(i => i.category === category)
+    getFaqColumn(left) {
+      const isLeft = (e, i) => left ? i % 2 === 0 : i % 2 !== 0
+      return this.items.filter(isLeft)
     },
-    prioritizeQuestion() {
+    // For future usage
+    filterFaq: (category) => {
+      return this.items.filter(i => i.category === category)
+    },
+    prioritizeQuestion: () => {
       // Have "What is a hackathon?" as the first question
       this.items.forEach((item, index, object) => {
-        if (item.question === 'What is Learn Day?' || item.question === 'What is Build Day?') {
+        if (item.question === 'What is a hackathon?') {
           object.splice(index, 1)
           this.items = [item, ...this.items]
         }
