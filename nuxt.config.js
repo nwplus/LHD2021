@@ -2,9 +2,8 @@ import pkg from './package'
 import { meta } from './plugins/meta'
 
 // Handles production env variables when building (These can be public)
-let envVars
-if (process.env.DEPLOY_ENV === 'GH_PAGES' || process.env.DEPLOY_ENV === 'PRODUCTION') {
-  envVars = {
+const envVars = process.env.DEPLOY_ENV === 'GH_PAGES' || process.env.DEPLOY_ENV === 'PRODUCTION' ? {
+  env: {
     FIREBASE_API_KEY: 'AIzaSyDGa7alU0NhfBATSQ6CalkY4Za9wWPrM7o',
     FIREBASE_AUTH_DOMAIN: 'nwplus-ubc.firebaseapp.com',
     FIREBASE_DATABASE_URL: 'https://nwplus-ubc.firebaseio.com',
@@ -14,7 +13,7 @@ if (process.env.DEPLOY_ENV === 'GH_PAGES' || process.env.DEPLOY_ENV === 'PRODUCT
     appId: '1:306881258768:web:bc922148732abee79f7195',
     measurementId: 'G-BT2W7DSL1G'
   }
-}
+} : {}
 
 export default {
   ...envVars,
