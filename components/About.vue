@@ -22,7 +22,17 @@
 <style lang="scss" scoped>
 @import "bulma/bulma.sass";
 
+$body-font: "Source Sans Pro", sans-serif;
+
 // Desktop CSS
+.about-section {
+  background-image: url("~@/assets/sprite/svg/about__background.svg");
+  /*background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  position: relative;*/
+}
+
 .about-header, .about-p1, .about-p2 {
   text-align: center;
 }
@@ -38,13 +48,17 @@
   max-width: $tablet;
 
   // Text
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: $body-font;
   font-size: 24px;
-  /*color: white;*/
+  color: white;
 }
 
 // Mobile CSS
 @include until($tablet) {
+  .about-background {
+    background-image: url("~@/assets/sprite/svg/about__background_m.svg");
+  }
+
   .about-p1, .about-p2, .about-header {
     margin: 1em;
     text-align: center;
