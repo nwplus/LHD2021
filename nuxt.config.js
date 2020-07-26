@@ -4,12 +4,12 @@ import { meta } from './plugins/meta'
 // Handles production env variables when building (These can be public)
 const envVars = process.env.DEPLOY_ENV === 'GH_PAGES' || process.env.DEPLOY_ENV === 'PRODUCTION' ? {
   env: {
-    NUXT_PUBLIC_FIREBASE_API_KEY: 'AIzaSyDGa7alU0NhfBATSQ6CalkY4Za9wWPrM7o',
-    NUXT_PUBLIC_FIREBASE_AUTH_DOMAIN: 'nwplus-ubc.firebaseapp.com',
-    NUXT_PUBLIC_FIREBASE_DATABASE_URL: 'https://nwplus-ubc.firebaseio.com',
-    NUXT_PUBLIC_FIREBASE_PROJECT_ID: 'nwplus-ubc',
-    NUXT_PUBLIC_FIREBASE_STORAGE_BUCKET: 'nwplus-ubc.appspot.com',
-    NUXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: '306881258768',
+    NUXT_ENV__FIREBASE_API_KEY: 'AIzaSyDGa7alU0NhfBATSQ6CalkY4Za9wWPrM7o',
+    NUXT_ENV__FIREBASE_AUTH_DOMAIN: 'nwplus-ubc.firebaseapp.com',
+    NUXT_ENV__FIREBASE_DATABASE_URL: 'https://nwplus-ubc.firebaseio.com',
+    NUXT_ENV__FIREBASE_PROJECT_ID: 'nwplus-ubc',
+    NUXT_ENV__FIREBASE_STORAGE_BUCKET: 'nwplus-ubc.appspot.com',
+    NUXT_ENV__FIREBASE_MESSAGING_SENDER_ID: '306881258768',
     appId: '1:306881258768:web:bc922148732abee79f7195',
     measurementId: 'G-BT2W7DSL1G'
   }
