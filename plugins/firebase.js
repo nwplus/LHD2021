@@ -14,6 +14,7 @@ if (!firebase.apps.length) {
     measurementId: 'G-RLRSC8S2SH',
     appId: '1:1035779736769:web:05a5085323dfeb7f3f4040'
   }
+  console.log(config)
   firebase.initializeApp(config)
 }
 
