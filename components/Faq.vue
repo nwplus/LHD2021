@@ -1,62 +1,29 @@
 <template>
   <div class="container">
     <h1 class="faq-title">
-      FAQ
+      Frequently Asked Questions
     </h1>
     <div class="columns">
-      <!-- Left column begin -->
-      <div class="column is-half is-multiline">
-        <!--  -->
-        <p class="label">
-          General
-        </p>
-        <div v-for="item in sortedItems" :key="`General-${item.question}`">
-          <div v-if="item.selected && item.category == 'General'">
-            <button @click="openSesame" class="accordion">
-              {{ item.question }}
-            </button>
-            <div class="panel">
-              <p>{{ item.answer }}</p>
-            </div>
+      <div class="column is-half">
+        <div v-for="faq in leftFaqs" :key="`Common-${faq.question}`">
+          <button @click="toggleBox" class="accordion">
+            {{ faq.question }}
+          </button>
+          <div class="panel">
+            <p>{{ faq.answer }}</p>
           </div>
         </div>
-        <!--  -->
       </div>
-      <!-- Left column end -->
-      <!-- Right column begin -->
-      <div class="column is-half is-multiline">
-        <!-- logistics start -->
-        <p class="label">
-          Teams &amp; Projects
-        </p>
-        <div v-for="item in items" :key="`Teams-${item.question}`">
-          <div v-if="item.selected && item.category == 'Teams'">
-            <button @click="openSesame" class="accordion">
-              {{ item.question }}
-            </button>
-            <div class="panel">
-              <p>{{ item.answer }}</p>
-            </div>
+      <div class="column is-half">
+        <div v-for="faq in rightFaqs" :key="`Common-${faq.question}`">
+          <button @click="toggleBox" class="accordion">
+            {{ faq.question }}
+          </button>
+          <div class="panel">
+            <p>{{ faq.answer }}</p>
           </div>
         </div>
-        <!-- logistics end -->
-        <!-- logistics 2 start -->
-        <p class="label">
-          Logistics
-        </p>
-        <div v-for="item in items" :key="`Logistics-${item.question}`">
-          <div v-if="item.selected && item.category == 'Logistics'">
-            <button @click="openSesame" class="accordion">
-              {{ item.question }}
-            </button>
-            <div class="panel">
-              <p>{{ item.answer }}</p>
-            </div>
-          </div>
-        </div>
-        <!-- logistics 2 end -->
       </div>
-      <!-- Right column end -->
     </div>
   </div>
 </template>
@@ -69,21 +36,14 @@ export default {
       required: true
     }
   },
-  computed: {
-    sortedItems() {
-      return [...this.items].sort((a, b) => {
-        if (a.question === 'What is a hackathon?') {
-          return -1
-        } else if (b.question === 'What is a hackathon?') {
-          return 1
-        } else {
-          return 0
-        }
-      })
+  data() {
+    return {
+      leftFaqs: this.getFaqColumn(true),
+      rightFaqs: this.getFaqColumn(false)
     }
   },
   methods: {
-    openSesame: (e) => {
+    toggleBox: (e) => {
       e.target.classList.toggle('active')
       const panel = e.target.nextElementSibling
       if (panel.style.display === 'block') {
@@ -91,11 +51,82 @@ export default {
       } else {
         panel.style.display = 'block'
       }
+    },
+    getFaqColumn(left) {
+      const isLeft = (e, i) => left ? i % 2 === 0 : i % 2 !== 0
+      return this.items.filter(isLeft)
+    },
+    // For future usage
+    filterFaq: (category) => {
+      return this.items.filter(i => i.category === category)
+    },
+    prioritizeQuestion: () => {
+      // Have "What is a hackathon?" as the first question
+      this.items.forEach((item, index, object) => {
+        if (item.question === 'What is a hackathon?') {
+          object.splice(index, 1)
+          this.items = [item, ...this.items]
+        }
+      })
+      return this.items
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-
+@import "bulma/bulma.sass";
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+.title {
+  text-align: center;
+  font-family: "HK Grotesk Regular";
+  font-size: 48px;
+  color: black;
+}
+.label {
+  font-family: "HK Grotesk Regular";
+  color: black;
+  font-size: 20px;
+}
+//Desktop CSS:
+.accordion {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  margin: 10px auto;
+  text-align: left;
+  outline: none;
+  border: 1.3px solid black;
+  border-radius: 5px;
+  font-size: 18px;
+  font-family: "HK Grotesk Regular";
+}
+.accordion.active {
+  border-bottom: none;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  margin-bottom: 0px;
+}
+.panel {
+  padding: 18px;
+  padding-top: 0;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+  border: 1.3px solid black;
+  border-top: none;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 2%;
+  width: 100%;
+}
+//Mobile CSS:
+@include until($desktop) {
+}
 </style>
