@@ -125,10 +125,6 @@
   </div>
 </template>
 
-<script>
-export default {}
-</script>
-
 <style lang="scss" scoped>
   @import "bulma/bulma.sass";
   //Desktop CSS:
@@ -188,6 +184,13 @@ export default {}
   @include until($tablet) {
     .join-us-section {
       width: 85vw;
+    }
+  }
+
+  @include until(350px) {
+    .links {
+      display: flex;
+      flex-direction: column;
     }
   }
 </style>
