@@ -61,6 +61,7 @@ export default {
         signUpText: data.SignUpText
       },
       FAQs: FaqQuestions,
+      faqFlag: FaqQuestions.length !== 0 && data.faqFlag,
       ...data.featureFlags
     }
   }
