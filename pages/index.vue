@@ -3,6 +3,7 @@
     <NavBar id="navbar" :faq="faqFlag" />
     <section id="mainSection">
       <div class="mainContent">
+        <Hero />
         <Intro id="intro" :intro="intro" :volunteerOpen="volunteerFlag" :mentorOpen="mentorFlag" />
         <div id="scaledSection">
           <Events id="events" :items="events" />
@@ -17,6 +18,7 @@
 
 <script>
 import NavBar from '~/components/NavBar.vue'
+import Hero from '~/components/Hero.vue'
 import Intro from '~/components/Intro.vue'
 import Sponza from '~/components/Sponza.vue'
 import Footer from '~/components/Footer.vue'
@@ -26,6 +28,7 @@ import FAQ from '~/components/Faq.vue'
 export default {
   components: {
     NavBar,
+    Hero,
     Intro,
     Footer,
     Sponza,
