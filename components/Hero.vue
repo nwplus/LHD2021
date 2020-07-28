@@ -3,8 +3,7 @@
     <p class="hero-presents-text">
       nwPlus presents
     </p>
-    <span class="hero-lhd-logo" />
-    <img :src="lhdLogo">
+    <img :src="lhdLogo" class="hero-lhd-logo">
     <p class="hero-presents-text">
       Learn. Build. Share.
     </p>
@@ -41,16 +40,17 @@ export default {
 @import "bulma/bulma.sass";
 
 $body-font: "Source Sans Pro", sans-serif;
+$hero-background-color: #4A414D;
 
 // Desktop CSS
 .hero-section {
   padding-top: 5%;
-
   background-image: url("~@/assets/sprite/svg/hero__background.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100vw;
-  min-height: 120vh;
+  background-color: $hero-background-color;
+  min-height: 130vh;
   position: relative;
   text-align: center;
   color: white;
@@ -59,16 +59,19 @@ $body-font: "Source Sans Pro", sans-serif;
   line-height: 18px;
 }
 
+.hero-presents-text {
+  padding-top: 10px;
+}
+
 .hero-mailing-list-text {
   font-size: 16px;
   line-height: 20px;
+  padding: 10px 0;
 }
 
 .hero-lhd-logo {
-  background-image: url("~@/assets/sprite/svg/hero__logo.svg");
   width: 146px;
   height: 179px;
-  position: relative;
 }
 
 .hero-email-subscribe {
@@ -93,6 +96,7 @@ $body-font: "Source Sans Pro", sans-serif;
     width: 115px;
     height: 50px;
     background: rgba(6, 26, 44, 0.76);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 54px;
     margin-left: -115px;
     color: white;
@@ -101,8 +105,42 @@ $body-font: "Source Sans Pro", sans-serif;
 
 // Mobile CSS
 @include until($tablet) {
-  .about-background {
-    background-image: url("~@/assets/sprite/svg/hero__background.svg");
+  .hero-section {
+    background-image: url("~@/assets/sprite/svg/hero__background_mobile.svg");
+    min-height: 110vh;
+    font-size: 12px;
+    line-height: 10px;
+  }
+
+  .hero-presents-text {
+  padding-top: 30px;
+}
+
+  .hero-lhd-logo {
+    width: 122.79px;
+    height: 160px;
+  }
+
+  .hero-mailing-list-text {
+  font-size: 14px;
+  line-height: 10px;
+  padding: 10px 0;
+}
+
+  .hero-email-subscribe {
+    font-size: 16px;
+    line-height: 20px;
+
+    input {
+      width: 253px;
+      height: 38.24px;
+    }
+
+    button {
+      width: 78px;
+      height: 39px;
+      margin-left: -78px;
+    }
   }
 }
 </style>
