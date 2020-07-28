@@ -113,8 +113,8 @@ $hero-background-color: #4A414D;
   }
 
   .hero-presents-text {
-  padding-top: 30px;
-}
+    padding-top: 30px;
+  }
 
   .hero-lhd-logo {
     width: 122.79px;
@@ -122,10 +122,10 @@ $hero-background-color: #4A414D;
   }
 
   .hero-mailing-list-text {
-  font-size: 14px;
-  line-height: 10px;
-  padding: 10px 0;
-}
+    font-size: 14px;
+    line-height: 10px;
+    padding: 10px 0;
+  }
 
   .hero-email-subscribe {
     font-size: 16px;
