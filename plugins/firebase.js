@@ -20,7 +20,7 @@ if (!firebase.apps.length) {
 const db = firebase.firestore()
 
 const HACKATHONS = 'Hackathons'
-const HACKATHON_ID = 'TestHackathon2020'
+const HACKATHON_ID = 'LHD2021'
 
 firebase.analytics()
 

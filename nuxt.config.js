@@ -4,20 +4,17 @@ import { meta } from './plugins/meta'
 // Handles production env variables when building (These can be public)
 const envVars = process.env.DEPLOY_ENV === 'GH_PAGES' || process.env.DEPLOY_ENV === 'PRODUCTION' ? {
   env: {
-    FIREBASE_API_KEY: 'AIzaSyCBkQHeikIsiYZ2yOHiqH_mGJKDWMDU500',
-    FIREBASE_AUTH_DOMAIN: 'nwhacks-2019.firebaseapp.com',
-    FIREBASE_DATABASE_URL: 'https://nwhacks-2019.firebaseio.com',
-    FIREBASE_PROJECT_ID: 'nwhacks-2019',
-    FIREBASE_STORAGE_BUCKET: 'nwhacks-2019',
-    FIREBASE_MESSAGING_SENDER_ID: '98283589440',
-    RECAPTCHA_SITE_KEY: '6Lf-PXcUAAAAAKqB-M3SNbBz5D67TtHAo94_YwyJ',
-    WEBSITE_NAME: 'cmd-f_2020',
-    mailingListUrl: 'https://us-central1-nwhacks-2019.cloudfunctions.net/subscribeToMailingList'
+    FIREBASE_API_KEY: 'AIzaSyDGa7alU0NhfBATSQ6CalkY4Za9wWPrM7o',
+    FIREBASE_AUTH_DOMAIN: 'nwplus-ubc.firebaseapp.com',
+    FIREBASE_DATABASE_URL: 'https://nwplus-ubc.firebaseio.com',
+    FIREBASE_PROJECT_ID: 'nwplus-ubc',
+    FIREBASE_STORAGE_BUCKET: 'nwplus-ubc.appspot.com',
+    FIREBASE_MESSAGING_SENDER_ID: '306881258768',
+    appId: '1:306881258768:web:bc922148732abee79f7195',
+    measurementId: 'G-BT2W7DSL1G'
   }
 } : {
-  env: {
-    mailingListUrl: 'http://localhost:5000/nwhacks-2019-dev/us-central1/subscribeToMailingList/'
-  }
+  env: {}
 }
 
 export default {
