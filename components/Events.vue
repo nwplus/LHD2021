@@ -4,7 +4,7 @@
       <div v-for="item in sortedEvents" :key="item.order" :class="{ flipped: isFlipped(item) }">
         <div class="events row">
           <div class="image-container">
-            <img :src="getImageURL(item)" class="image">
+            <img :src="getImageURL(item)" :alt="`${item.title}, ${item.date}`" class="image">
           </div>
           <p class="valuesText">
             {{ item.text }}
