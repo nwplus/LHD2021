@@ -9,7 +9,7 @@ const envVars = process.env.DEPLOY_ENV === 'GH_PAGES' || process.env.DEPLOY_ENV 
     NUXT_ENV_FIREBASE_DATABASE_URL: 'https://nwplus-ubc.firebaseio.com',
     NUXT_ENV_FIREBASE_PROJECT_ID: 'nwplus-ubc',
     NUXT_ENV_FIREBASE_STORAGE_BUCKET: 'nwplus-ubc.appspot.com',
-    NUXT_ENV_FIREBASE_MESSAGING_SENDER_ID: '306881258768',
+    NUXT_ENV_FIREBASE_MESSAGING_SENDER_ID: '306881258768'
   }
 } : {
   env: {
