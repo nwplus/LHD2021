@@ -57,6 +57,7 @@ $hero-background-color: #4A414D;
   font-family: $body-font;
   font-size: 14px;
   line-height: 18px;
+  overflow-x: hidden;
 }
 
 .hero-presents-text {
@@ -81,12 +82,13 @@ $hero-background-color: #4A414D;
   input {
     width: 344px;
     height: 52px;
+    color: white;
     background-color: rgba(24, 44, 59, 0.49);
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-sizing: border-box;
     border-radius: 33px;
     padding-left: 20px;
-
+    outline: none;
   }
   ::placeholder {
     color: white;
@@ -94,12 +96,13 @@ $hero-background-color: #4A414D;
 
   button {
     width: 115px;
-    height: 50px;
+    height: 52px;
     background: rgba(6, 26, 44, 0.76);
     border: 1px solid rgba(0, 0, 0, 0.08);
-    border-radius: 54px;
-    margin-left: -115px;
+    border-radius: 33px;
+    margin-left: -118px;
     color: white;
+    outline: none;
   }
 }
 
