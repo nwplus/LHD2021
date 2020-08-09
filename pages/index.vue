@@ -6,6 +6,7 @@
         <Intro id="intro" :intro="intro" :volunteerOpen="volunteerFlag" :mentorOpen="mentorFlag" />
         <div id="scaledSection">
           <Events id="events" :items="events" />
+          <About id="about" />
           <FAQ id="faq" v-if="faqFlag" :items="FAQs" />
           <Sponza id="sponza" v-if="sponsorFlag" :items="sponsors" />
         </div>
@@ -22,6 +23,7 @@ import Sponza from '~/components/Sponza.vue'
 import Footer from '~/components/Footer.vue'
 import fireDb from '~/plugins/firebase.js'
 import Events from '~/components/Events.vue'
+import About from '~/components/About.vue'
 import FAQ from '~/components/Faq.vue'
 export default {
   components: {
@@ -30,6 +32,7 @@ export default {
     Footer,
     Sponza,
     Events,
+    About,
     FAQ
   },
   computed: {
