@@ -2,7 +2,7 @@
   <a :href="formatURL(item.url)" class="link" target="_blank" rel="noopener noreferrer">
     <img
       :class="{[item.rank]: true}"
-      :src="item.imageURL"
+      :src="item.imgURL"
       :alt="item.name"
     >
   </a>
@@ -29,5 +29,47 @@ export default {
 </script>
 
 <style scoped lang="scss">
+  @import "bulma/bulma.sass";
 
+  img {
+    display: block;
+    transition-duration: 0.2s;
+  }
+
+  img:hover {
+    transform: scale(1.08);
+  }
+
+  .tera {
+    max-width: 500px;
+    max-height: 260px;
+  }
+
+  .giga {
+    max-width: 350px;
+    max-height: 240px;
+  }
+
+  .mega {
+    max-width: 300px;
+    max-height: 220px;
+  }
+
+  .kilo {
+    max-width: 250px;
+    max-height: 200px;
+  }
+
+  .in-kind {
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  //Mobile CSS:
+  @include until($tablet) {
+    img {
+      display: inline;
+      max-width: 200px;
+    }
+  }
 </style>
