@@ -6,10 +6,16 @@
           <div class="image-container">
             <img :src="getImageURL(item)" :alt="`${item.title}, ${item.date}`" class="image">
           </div>
-          <p class="valuesText">
-            <img :src="require(`@/assets/sprite/svg/events__arrow.svg`)" alt="right-arrow" class="arrow">
-            {{ item.text }}
-          </p>
+          <div class="blob-container">
+            <img
+              :src="require(`@/assets/sprite/svg/events__arrow.svg`)"
+              alt="right-arrow"
+              class="arrow"
+            >
+            <p class="valuesText">
+              {{ item.text }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -95,8 +101,21 @@ $body-font: "Source Sans Pro", sans-serif;
         line-height: 15px;
       }
     }
+    .blob-container {
+      display: flex;
+      align-items: baseline;
+    }
     .arrow {
-      width: .75em;
+      @include until($tablet) {
+        width: 0.75rem;
+        margin-right: 7px;
+      }
+      @include until($mobile) {
+        width: 0.5rem;
+        margin-right: 5px;
+      }
+      width: 1rem;
+      margin-right: 10px;
     }
     .image {
       @include until($tablet) {
