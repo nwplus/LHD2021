@@ -6,9 +6,12 @@
           <div class="image-container">
             <img :src="getImageURL(item)" :alt="`${item.title}, ${item.date}`" class="image">
           </div>
-          <p class="valuesText">
-            {{ item.text }}
-          </p>
+          <div class="blob-container">
+            <img :src="arrow" alt="right-arrow" class="arrow">
+            <p class="valuesText">
+              {{ item.text }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -17,11 +20,17 @@
 
 <script>
 import orderBy from 'lodash.orderby'
+import arrow from '../assets/sprite/svg/events__arrow.svg'
 export default {
   props: {
     items: {
       type: Array,
       required: true
+    }
+  },
+  data: function () {
+    return {
+      arrow
     }
   },
   computed: {
@@ -94,7 +103,23 @@ $body-font: "Source Sans Pro", sans-serif;
         line-height: 15px;
       }
     }
-    img {
+    .blob-container {
+      display: flex;
+      align-items: baseline;
+    }
+    .arrow {
+      @include until($tablet) {
+        width: 0.75rem;
+        margin-right: 7px;
+      }
+      @include until($mobile) {
+        width: 0.5rem;
+        margin-right: 5px;
+      }
+      width: 1rem;
+      margin-right: 10px;
+    }
+    .image {
       @include until($tablet) {
         width: 40vw;
       }
