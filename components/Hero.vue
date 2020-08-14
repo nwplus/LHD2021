@@ -11,8 +11,10 @@
       Join our mailing list for updates about our events!
     </p>
     <div class="hero-email-subscribe">
-      <input type="email" placeholder="Enter email here....">
-      <button>Subscribe</button>
+      <input v-model="email" type="email" placeholder="Enter email here....">
+      <button :class="{active: email}">
+        Subscribe
+      </button>
     </div>
   </div>
 </template>
@@ -20,11 +22,11 @@
 <script>
 import lhdLogo from '../assets/sprite/svg/hero__logo.svg'
 export default {
-  props: {
-  },
+  props: {},
   data: function () {
     return {
-      lhdLogo: lhdLogo
+      lhdLogo: lhdLogo,
+      email: null
     }
   },
   mounted: function () {
@@ -40,7 +42,7 @@ export default {
 @import "bulma/bulma.sass";
 
 $body-font: "Source Sans Pro", sans-serif;
-$hero-background-color: #4A414D;
+$hero-background-color: #4a414d;
 
 // Desktop CSS
 .hero-section {
@@ -103,6 +105,11 @@ $hero-background-color: #4A414D;
     margin-left: -118px;
     color: white;
     outline: none;
+    transition: 0.25s;
+    &.active {
+      background: #ffbc96;
+      color: #172b3b;
+    }
   }
 }
 
