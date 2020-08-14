@@ -7,6 +7,7 @@
             <img :src="getImageURL(item)" :alt="`${item.title}, ${item.date}`" class="image">
           </div>
           <p class="valuesText">
+            <img :src="require(`@/assets/sprite/svg/events__arrow.svg`)" alt="right-arrow" class="arrow">
             {{ item.text }}
           </p>
         </div>
@@ -94,7 +95,10 @@ $body-font: "Source Sans Pro", sans-serif;
         line-height: 15px;
       }
     }
-    img {
+    .arrow {
+      width: .75em;
+    }
+    .image {
       @include until($tablet) {
         width: 40vw;
       }
