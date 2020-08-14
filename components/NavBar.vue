@@ -1,6 +1,11 @@
 <template>
   <nav>
-    <nav :style="{visibility: visible, opacity: opacity}" class="navbar" role="navigation" aria-label="main navigation">
+    <nav
+      :style="{visibility: visible, opacity: opacity}"
+      class="navbar"
+      role="navigation"
+      aria-label="main navigation"
+    >
       <a
         href="https://mlh.io/seasons/na-2020/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2020-season&utm_content=black"
         target="_blank"
@@ -11,7 +16,8 @@
           src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-black.svg"
           alt="Major League Hacking 2020 Hackathon Season"
           class="navbar-item"
-        ></a>
+        >
+      </a>
       <div id="navbar" class="navbar-menu">
         <div class="navbar-start" />
         <div class="navbar-end">
@@ -19,7 +25,12 @@
             <a v-scroll-to="'#events'" href="#" class="navbar-item">About</a>
             <a v-if="faq" v-scroll-to="'#faq'" href="#" class="navbar-item">FAQ</a>
             <a v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
-            <a href="https://cmd-f.nwplus.io/" rel="noopener" target="_blank" class="navbar-item">2019</a>
+            <a
+              href="https://cmd-f.nwplus.io/"
+              rel="noopener"
+              target="_blank"
+              class="navbar-item"
+            >2019</a>
           </div>
           <a href="https://www.nwplus.io/" target="_blank" rel="noopener">
             <img
@@ -62,7 +73,8 @@ export default {
       if (screen.width > 768) {
         let lastScroll = 0
         return (event) => {
-          const scroll = window.pageYOffset || document.documentElement.scrollTop
+          const scroll =
+            window.pageYOffset || document.documentElement.scrollTop
           if (scroll <= 0) {
             this.visible = 'visible'
             this.opacity = '1'
@@ -77,7 +89,8 @@ export default {
         }
       } else {
         return (event) => {
-          const scroll = window.pageYOffset || document.documentElement.scrollTop
+          const scroll =
+            window.pageYOffset || document.documentElement.scrollTop
           if (scroll <= 80) {
             this.visible = 'visible'
             this.opacity = '1'
@@ -94,10 +107,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "bulma/bulma.sass";
+$white: #ffffff;
 
 .navbar {
-  font-family: 'Zilla Slab', serif;
-  font-weight: bold;
+  font-family: Source Sans Pro;
+  font-weight: normal;
   background: none;
   color: rgba(1, 1, 1, 0);
   position: fixed;
@@ -112,16 +126,16 @@ export default {
   text-decoration: none;
   font-size: 18px;
   padding: 0px 32px;
-  color: #2F4246;
+  color: $white;
   padding-top: 15px;
 }
 .navbar-item::after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 2px;
-  background: #2F4246;
-  transition: width .3s;
+  background: $white;
+  transition: width 0.3s;
 }
 .navbar-item:hover::after {
   width: 100%;
@@ -130,7 +144,7 @@ a.navbar-item:hover,
 a.navbar-item:focus,
 a.navbar-item:focus-within {
   background: none;
-  color: #2F4246
+  color: $white;
 }
 .buttons {
   margin-right: 78px;
@@ -163,7 +177,7 @@ a.navbar-item:focus-within {
 .is-active .buttons .navbar-item {
   color: #fff;
 }
-@include until ($desktop) {
+@include until($desktop) {
   .navbar {
     background: none;
   }
