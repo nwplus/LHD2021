@@ -52,7 +52,7 @@ $hero-background-color: #4a414d;
   background-repeat: no-repeat;
   background-size: 100vw;
   background-color: $hero-background-color;
-  min-height: 130vh;
+  min-height: 68vw;
   position: relative;
   text-align: center;
   color: white;
@@ -117,7 +117,7 @@ $hero-background-color: #4a414d;
 @include until($tablet) {
   .hero-section {
     background-image: url("~@/assets/sprite/svg/hero__background_mobile.svg");
-    min-height: 110vh;
+    min-height: 183vw;
     font-size: 12px;
     line-height: 10px;
   }
