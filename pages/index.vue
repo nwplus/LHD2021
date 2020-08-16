@@ -26,7 +26,7 @@ import Footer from '~/components/Footer.vue'
 import fireDb from '~/plugins/firebase.js'
 import Events from '~/components/Events.vue'
 import About from '~/components/About.vue'
-import FAQ from '~/components/Faq.vue'
+import FAQ from '~/components/faq/Faq.vue'
 export default {
   components: {
     NavBar,
