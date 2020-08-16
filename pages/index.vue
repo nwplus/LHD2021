@@ -75,5 +75,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+#main-page {
+  background: #4A414C
+}
 </style>
