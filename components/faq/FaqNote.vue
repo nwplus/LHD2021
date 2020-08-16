@@ -1,6 +1,6 @@
 <template>
   <div class="sticky-note">
-    <img src="~@/assets/sprite/svg/faq__pin_with_shadow.svg">
+    <img class="pin" src="~@/assets/sprite/svg/faq__pin_with_shadow.svg" align="left">
     <div class="faq">
       <p class="faq-question">
         {{ faq.question }}
@@ -30,7 +30,7 @@ export default {
 @import "bulma/bulma.sass";
 
 $body-font: "Source Sans Pro", sans-serif;
-$body-color: "#56321E";
+$body-color: #56321E;
 
 //Desktop CSS:
 .sticky-note {
@@ -40,13 +40,12 @@ $body-color: "#56321E";
     margin-top: 30px;
 }
 
-.faq{
+.faq {
     position: relative;
-    z-index: 1;
-    margin: auto;
+    z-index: 2;
     width: 90%;
-    padding-top: 25px;
-    padding-bottom: 15px;
+    margin: auto;
+    padding: 25px 0px 3vh 15px;
     font-family: $body-font;
     color: $body-color;
     font-size: 12px;
@@ -56,19 +55,16 @@ $body-color: "#56321E";
 .faq-question {
     font-weight: 600;
     padding-bottom: 3px;
-    overflow: hidden;
 }
 
 .faq-answer {
     font-weight: normal;
-    overflow: hidden;
 }
 
-img {
-    position: static;
-    z-index: -1;
+.pin {
+    position: absolute;
+    z-index: 1;
     transform: translate(-45%, -25%);
-    float:left;
 }
 
 //Mobile CSS:
