@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div id="bulletin-title-container">
-      <img id="bulletin-title" src="~@/assets/sprite/svg/faq__section_title.svg">
+      <img id="bulletin-title" src="~@/assets/sprite/svg/faq__section_title.svg" alt="Frequently Asked Questions">
     </div>
     <div id="bulletin-board-container">
       <div class="columns faqs">

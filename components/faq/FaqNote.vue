@@ -1,6 +1,6 @@
 <template>
   <div class="sticky-note">
-    <img class="pin" src="~@/assets/sprite/svg/faq__pin_with_shadow.svg" align="left">
+    <img class="pin" src="~@/assets/sprite/svg/faq__pin_with_shadow.svg" align="left" alt="A pin">
     <div class="faq">
       <p class="faq-question">
         {{ faq.question }}
