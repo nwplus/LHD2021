@@ -29,7 +29,7 @@ export default {
   },
 
   head: {
-    title: 'cmd-f 2020',
+    title: 'LHD 2020',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -94,7 +94,7 @@ export default {
     [
       '@nuxtjs/google-analytics',
       {
-        id: 'UA-144737203-1',
+        id: 'UA-172083124-1',
         dev: false
       }
     ],
