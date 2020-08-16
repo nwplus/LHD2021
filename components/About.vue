@@ -48,7 +48,7 @@ $body-font: "Source Sans Pro", sans-serif;
 
 .about-content {
   position: absolute;
-  padding-top: 35%;
+  padding-top: 30%;
 }
 
 .about-bg {
@@ -85,6 +85,12 @@ $body-font: "Source Sans Pro", sans-serif;
 }
 
 @include until($tablet) {
+  .about-content {
+    padding-top: 20%;
+  }
+  .about-header {
+    width: 60%;
+  }
   .about-p1, .about-p2 {
     font-size: 0.7rem;
   }
