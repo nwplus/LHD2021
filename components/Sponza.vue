@@ -1,40 +1,39 @@
 <template>
   <div class="sponza">
-    <p class="sponsor-title">
-      Sponsors
-    </p>
-    <br>
-    <div id="sponsors-list" class="sponsorCategory">
-      <div v-for="item in listOfTera" :key="item.name" class="sponsorWrapper">
-        <SponsorImage :item="item" />
+    <div id="sponsorList">
+      <div class="sponsorCategory">
+        <div v-for="item in listOfTera" :key="item.name" class="sponsorWrapper">
+          <SponsorImage :item="item" />
+        </div>
+      </div>
+      <div class="sponsorCategory">
+        <div v-for="item in listOfGiga" :key="item.name" class="sponsorWrapper">
+          <SponsorImage :item="item" />
+        </div>
+      </div>
+      <div class="sponsorCategory">
+        <div v-for="item in listOfMega" :key="item.name" class="sponsorWrapper">
+          <SponsorImage :item="item" />
+        </div>
+      </div>
+      <div class="sponsorCategory">
+        <div v-for="item in listOfKilo" :key="item.name" class="sponsorWrapper">
+          <SponsorImage :item="item" />
+        </div>
+      </div>
+      <div class="sponsorCategory">
+        <div v-for="item in listOfInKind" :key="item.name" class="sponsorWrapper">
+          <SponsorImage :item="item" />
+        </div>
       </div>
     </div>
-    <div id="sponsors-list" class="sponsorCategory">
-      <div v-for="item in listOfGiga" :key="item.name" class="sponsorWrapper">
-        <SponsorImage :item="item" />
-      </div>
-    </div>
-    <div id="sponsors-list" class="sponsorCategory">
-      <div v-for="item in listOfMega" :key="item.name" class="sponsorWrapper">
-        <SponsorImage :item="item" />
-      </div>
-    </div>
-    <div id="sponsors-list" class="sponsorCategory">
-      <div v-for="item in listOfKilo" :key="item.name" class="sponsorWrapper">
-        <SponsorImage :item="item" />
-      </div>
-    </div>
-    <div id="sponsors-list" class="sponsorCategory">
-      <div v-for="item in listOfInKind" :key="item.name" class="sponsorWrapper">
-        <SponsorImage :item="item" />
-      </div>
-    </div>
-    <!--  -->
+    <img :src="sponsorSash" class="sponsor-sash" alt="Our Sponsors">
     <BecomeSponsorButton />
   </div>
 </template>
 
 <script>
+import sponsorSash from '../assets/sprite/svg/sponsor__backgound.svg'
 import SponsorImage from '~/components/SponsorImage'
 import BecomeSponsorButton from '~/components/becomeSponsorButton'
 
@@ -44,6 +43,11 @@ export default {
     items: {
       type: Array,
       required: true
+    }
+  },
+  data: function () {
+    return {
+      sponsorSash
     }
   },
   computed: {
@@ -67,38 +71,45 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  @import "bulma/bulma.sass";
+@import "bulma/bulma.sass";
 
-  //Desktop CSS:
-  .sponsor-title {
-    font-size: 40px;
-  }
+$sponsor-background-color: #4A414D;
 
+//Desktop CSS:
+.sponsorCategory {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.sponsorWrapper {
+  margin: 30px;
+}
+
+.sponza {
+  margin-top: 2%;
+  text-align: center;
+  background-color: $sponsor-background-color;
+}
+
+.sponsor-sash {
+  width: 100%;
+}
+
+#sponsorList {
+  position: absolute;
+}
+
+//Mobile CSS:
+@include until($tablet) {
   .sponsorCategory {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
   }
-
   .sponsorWrapper {
-    margin: 30px;
+    max-width: 300px;
+    margin: 15px;
   }
-
-  .sponza {
-    margin-top: 2%;
-    text-align: center;
-  }
-
-  //Mobile CSS:
-  @include until($tablet) {
-    .sponsorCategory {
-      flex-direction: column;
-    }
-    .sponsorWrapper {
-      max-width: 300px;
-      margin: 15px;
-    }
-  }
+}
 </style>
