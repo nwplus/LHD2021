@@ -1,31 +1,35 @@
 <template>
   <div class="container">
     <div id="bulletin-title-container">
-      <img id="bulletin-title" src="~@/assets/sprite/svg/faq__section_title.svg" alt="faq-bulletin-title">
+      <img id="bulletin-title" src="~@/assets/sprite/svg/faq__section_title.svg">
     </div>
     <div id="bulletin-board-container">
-      <img id="bulletin-board" src="~@/assets/sprite/png/faq__bulletin_board.png" alt="faq-bulletin-board">
       <div class="columns faqs">
         <div class="column is-one-quarter">
-          <div v-for="faq in items" :key="`Common-${faq.question}`">
-            <FaqNote :faq="faq" />
+          <div v-for="faq in faqBin[0]" :key="`Common-${faq.question}`">
+            <FaqNote :faq="faq" class="faqnote" />
           </div>
         </div>
         <div class="column is-one-quarter">
-          <div v-for="faq in items" :key="`Common-${faq.question}`">
-            <FaqNote :faq="faq" />
+          <div v-for="faq in faqBin[1]" :key="`Common-${faq.question}`">
+            <FaqNote :faq="faq" class="faqnote" />
           </div>
         </div>
         <div class="column is-one-quarter">
-          <div v-for="faq in items" :key="`Common-${faq.question}`">
-            <FaqNote :faq="faq" />
+          <div v-for="faq in faqBin[2]" :key="`Common-${faq.question}`">
+            <FaqNote :faq="faq" class="faqnote" />
           </div>
         </div>
         <div class="column is-one-quarter">
-          <div v-for="faq in items" :key="`Common-${faq.question}`">
-            <FaqNote :faq="faq" />
+          <div v-for="faq in faqBin[3]" :key="`Common-${faq.question}`">
+            <FaqNote :faq="faq" class="faqnote" />
           </div>
         </div>
+      </div>
+      <div id="badges">
+        <img id="badge-axe" src="~@/assets/sprite/svg/faq__badge_axe.svg">
+        <img id="badge-debug" src="~@/assets/sprite/svg/faq__badge_debug.svg">
+        <img id="badge-marshmellow" src="~@/assets/sprite/svg/faq__badge_marshmellow.svg">
       </div>
     </div>
   </div>
@@ -44,20 +48,18 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-      leftFaqs: this.getFaqColumn(true),
-      rightFaqs: this.getFaqColumn(false)
-    }
-  },
-  methods: {
-    getFaqColumn(left) {
-      const isLeft = (e, i) => left ? i % 2 === 0 : i % 2 !== 0
-      return this.items.filter(isLeft)
-    },
-    // For future usage
-    filterFaq: (category) => {
-      return this.items.filter(i => i.category === category)
+  computed: {
+    faqBin: function () {
+      const bin = [
+        [],
+        [],
+        [],
+        []
+      ]
+      this.items.forEach((item, idx) => {
+        bin[idx % 4].push(item)
+      })
+      return bin
     }
   }
 }
@@ -68,49 +70,119 @@ export default {
 //Desktop CSS:
 .container {
   position: relative;
-  width: 100%;
-}
-
-#bulletin-board-container {
-  position: relative;
-}
-
-#bulletin-board {
-  position: static;
-  z-index: -1;
-  min-height: 100vh;
-}
-
-.faqs {
-  position: static;
-  z-index: 10;
-  width: 80%;
-  margin: 0 auto;
 }
 
 #bulletin-title-container {
   background-image: url("~@/assets/sprite/svg/faq__wooden_plank.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
-  position: static;
+  background-size: 100% 80%;
+  position: relative;
   z-index: 1;
-  height: 10vh;
+  display: block;
+  margin: auto;
+  transform: translate(0%, 75%);
+  min-height: 100px;
 }
 
 #bulletin-title {
-  background-image: url("~@/assets/sprite/svg/faq__section_title.svg");
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  text-align: center;
+  position: relative;
+  z-index: 3;
+  display: block;
+  margin: auto;
+  width: 43%;
+  min-height: 80px;
+  max-width: 500px;
 }
 
-.label {
-  font-family: "HK Grotesk Regular";
-  color: black;
-  font-size: 20px;
+#bulletin-board-container {
+  background-image: url("~@/assets/sprite/png/faq__bulletin_board.png");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+
+.faqs {
+  position: static;
+  z-index: 10;
+  width: 85%;
+  margin: auto;
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+
+.faqnote {
+  transition: transform .2s; /* Animation */
+}
+
+.faqnote:hover {
+  position: relative;
+  transform: scale(1.6);
+  z-index: 10;
+}
+
+#badges {
+  float: right;
+}
+
+#badge-axe {
+  position: absolute;
+  bottom: 13%;
+  right: 18%;
+}
+
+#badge-debug {
+  position: absolute;
+  bottom: 25%;
+  right: 10%;
+}
+
+#badge-marshmellow {
+  position: absolute;
+  bottom: 7%;
+  right: 7%;
 }
 
 //Mobile CSS:
 @include until($desktop) {
+
+#bulletin-title {
+  width: 50%;
+}
+
+#bulletin-board-container {
+  width: 85%;
+}
+
+}
+
+@include until($tablet) {
+
+#bulletin-board-container {
+  background-image: url("~@/assets/sprite/png/faq__mobile_bulletin_board.png");
+}
+
+#bulletin-title-container {
+  width: 75%;
+}
+
+#bulletin-title {
+  width: 75%;
+}
+
+#badges {
+  display: none;
+}
+
+.faqnote:hover {
+  position: relative;
+  transform: scale(1.3);
+  z-index: 10;
+}
+
 }
 </style>
