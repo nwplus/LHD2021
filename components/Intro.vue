@@ -34,56 +34,66 @@ export default {
 @import "bulma/bulma.sass";
 
 $body-font: "Source Sans Pro", sans-serif;
-$hero-background-color: #4A414D;
 
 // Desktop CSS
 .intro-container {
-  display: flex;
-  justify-content: center;
   position: relative;
+  // Hack for weird white space, TODO: debug
+  margin-bottom: -10px;
 }
 
 .intro-content {
-  position: absolute;
   padding-top: 20%;
+  position: absolute;
+  // Centering an absolute element
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  // Must have specific width
+  width: 50%;
 }
-
 .intro-bg {
   width: 100%;
-  background: linear-gradient(180deg, #48414E, 5%, #243745, #566770, #072639);
+  padding-bottom: 5%;
+  background: linear-gradient(180deg, #48414E, 5%, #243745, #566770, 65%, #072639);
+
 }
 
-.intro-header, .intro-p1, .intro-p2 {
-  text-align: center;
-}
 .intro-header {
-  font-size: 30px;
-  color: #56321E;
-}
-
-.intro-header-pre {
-  font-size: 12px;
-  color: #56321E;
-  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }
 
 .intro-p1, .intro-p2 {
   // Spacing
-  margin: 1em auto;
   max-width: $tablet;
+  margin: 1em auto 0 auto;
   // Text
+  text-align: center;
   font-family: $body-font;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: white;
 }
+
 // Mobile CSS
-@include until($tablet) {
-  .intro-background {
-    background-image: url("~@/assets/sprite/svg/intro__background_m.svg");
+@include until($desktop) {
+  .intro-p1, .intro-p2 {
+    font-size: 1rem;
   }
-  .intro-p1, .intro-p2, .intro-header {
-    margin: 1em;
-    text-align: center;
+}
+
+@include until($tablet) {
+  .intro-p1, .intro-p2 {
+    font-size: 0.7rem;
+  }
+}
+
+@include until(350px) {
+  .intro-p1, .intro-p2 {
+    font-size: 0.5rem;
   }
 }
 </style>
