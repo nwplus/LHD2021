@@ -69,7 +69,7 @@ $hero-background-color: #4a414d;
   background-repeat: no-repeat;
   background-size: 100vw;
   background-color: $hero-background-color;
-  min-height: 68vw;
+  min-height: 81vw;
   position: relative;
   text-align: center;
   color: white;
