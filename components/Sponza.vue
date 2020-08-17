@@ -89,17 +89,29 @@ $sponsor-background-color: #4A414D;
 }
 
 .sponza {
+  position: relative;
   margin-top: 2%;
   text-align: center;
   background-color: $sponsor-background-color;
 }
 
 .sponsor-sash {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 100%;
 }
 
 #sponsorList {
+  padding-top: 35%;
   position: absolute;
+  // Centering an absolute element
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  // Must have specific width
+  width: 60%;
 }
 
 //Mobile CSS:

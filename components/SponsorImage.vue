@@ -41,35 +41,35 @@ export default {
   }
 
   .tera {
-    max-width: 500px;
+    max-width: 900px;
     max-height: 260px;
   }
 
   .giga {
-    max-width: 350px;
+    max-width: 700px;
     max-height: 240px;
   }
 
   .mega {
-    max-width: 300px;
+    max-width: 600px;
     max-height: 220px;
   }
 
   .kilo {
-    max-width: 250px;
+    max-width: 500px;
     max-height: 200px;
   }
 
   .in-kind {
-    max-width: 150px;
+    max-width: 300px;
     max-height: 150px;
   }
 
   //Mobile CSS:
-  @include until($tablet) {
+  @include until($desktop) {
     img {
       display: inline;
-      max-width: 200px;
+      max-width: 200px !important;
     }
   }
 </style>
