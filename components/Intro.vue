@@ -53,11 +53,11 @@ $body-font: "Source Sans Pro", sans-serif;
   // Must have specific width
   width: 50%;
 }
+
 .intro-bg {
   width: 100%;
   padding-bottom: 5%;
-  background: linear-gradient(180deg, #48414E, 5%, #243745, #566770, 65%, #072639);
-
+  background: linear-gradient(180deg, #485B67 1%, #243745, #566770 75%, #072639 91%);
 }
 
 .intro-header {
