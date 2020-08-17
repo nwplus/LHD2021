@@ -1,5 +1,10 @@
 <template>
   <div class="hero-section">
+    <div class="wooden-post">
+      <img :src="aboutPost" alt="about">
+      <img :src="faqPost" alt="faq">
+      <img :src="sponsorsPost" alt="sponsors">
+    </div>
     <p class="hero-presents-text">
       nwPlus presents
     </p>
@@ -21,11 +26,17 @@
 
 <script>
 import lhdLogo from '../assets/sprite/svg/hero__logo.svg'
+import aboutPost from '../assets/sprite/svg/hero__about_post.svg'
+import faqPost from '../assets/sprite/svg/hero__faq_post.svg'
+import sponsorsPost from '../assets/sprite/svg/hero__sponsors_post.svg'
 export default {
   props: {},
   data: function () {
     return {
-      lhdLogo: lhdLogo,
+      lhdLogo,
+      aboutPost,
+      faqPost,
+      sponsorsPost,
       email: null
     }
   },
@@ -60,6 +71,15 @@ $hero-background-color: #4a414d;
   font-size: 14px;
   line-height: 18px;
   overflow-x: hidden;
+}
+
+.wooden-post {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 25vw;
+  left: 8vw;
+  width: 17vw;
 }
 
 .hero-presents-text {
@@ -120,6 +140,10 @@ $hero-background-color: #4a414d;
     min-height: 183vw;
     font-size: 12px;
     line-height: 10px;
+  }
+
+  .wooden-post {
+    display: none;
   }
 
   .hero-presents-text {
