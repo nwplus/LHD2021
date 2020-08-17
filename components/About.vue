@@ -13,7 +13,7 @@
         situation within BC and provide updates through our website and social media channels should anything change.
       </p>
     </div>
-    <img :src="aboutBg" class="about-bg">
+    <img :src="bg" class="about-bg">
   </div>
 </template>
 
@@ -25,10 +25,33 @@ import aboutPlank from '../assets/sprite/svg/about__welcome_plank.svg'
 export default {
   props: {},
   data: function () {
+    const initialBg = window.innerWidth > 769 ? aboutBg : aboutBgMobile
     return {
-      aboutBg,
-      aboutBgMobile,
+      windowWidth: window.innerWidth,
+      bg: initialBg,
       aboutPlank
+    }
+  },
+  watch: {
+    windowWidth(newWidth, oldWidth) {
+      if (newWidth > 769 && oldWidth <= 769) {
+        this.bg = aboutBg
+      } else if (newWidth < 769 && oldWidth >= 769) {
+        this.bg = aboutBgMobile
+      }
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize)
+    })
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
+  },
+  methods: {
+    onResize() {
+      this.windowWidth = window.innerWidth
     }
   }
 }
@@ -64,41 +87,25 @@ $body-font: "Source Sans Pro", sans-serif;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: #{'min(60ch, 80%)'};
 }
 
 .about-p1, .about-p2 {
   // Spacing
   margin: 1em auto 0 auto;
   max-width: 60ch;
+  padding: 0 2em;
   // Text
   font-family: $body-font;
-  font-size: 1.5rem;
+  // Override SCSS compiler, use literal
+  font-size: #{'max(1vw, 1em)'};
   color: white;
 }
 
 // Mobile CSS
-@include until($desktop) {
-  .about-p1, .about-p2 {
-    font-size: 1rem;
-  }
-}
-
 @include until($tablet) {
   .about-content {
-    padding-top: 20%;
-  }
-  .about-header {
-    width: 60%;
-  }
-  .about-p1, .about-p2 {
-    font-size: 0.7rem;
-  }
-}
-
-@include until(350px) {
-  .about-p1, .about-p2 {
-    font-size: 0.5rem;
+    padding-top: 50%;
   }
 }
 </style>
