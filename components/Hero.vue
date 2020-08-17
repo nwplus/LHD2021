@@ -1,9 +1,15 @@
 <template>
   <div class="hero-section">
     <div class="wooden-post">
-      <img :src="aboutPost" alt="about">
-      <img :src="faqPost" alt="faq">
-      <img :src="sponsorsPost" alt="sponsors">
+      <a v-scroll-to="'#intro'" href="#">
+        <img :src="aboutPost" alt="about">
+      </a>
+      <a v-scroll-to="'#faq'" href="#">
+        <img :src="faqPost" alt="faq">
+      </a>
+      <a v-scroll-to="'#sponza'" href="#">
+        <img :src="sponsorsPost" alt="sponsors">
+      </a>
     </div>
     <p class="hero-presents-text">
       nwPlus presents
@@ -80,6 +86,12 @@ $hero-background-color: #4a414d;
   top: 25vw;
   left: 8vw;
   width: 17vw;
+  img:hover {
+    transition: 0.25s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 }
 
 .hero-presents-text {
