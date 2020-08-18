@@ -8,7 +8,7 @@
         <a v-on:click="toggle" class="menu-icon" href="#">
           <img id="close" :src="close" alt="close menu">
         </a>
-        <div class="sidebar-menu">
+        <div v-on:click="toggle" class="sidebar-menu">
           <a v-scroll-to="'#events'" href="#" class="navbar-item">About</a>
           <a v-if="faq" v-scroll-to="'#faq'" href="#" class="navbar-item">FAQ</a>
           <a v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
