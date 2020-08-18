@@ -1,6 +1,23 @@
 <template>
   <nav>
+    <nav v-if="open">
+      <div id="sidebar">
+        <a href="https://www.nwplus.io/" target="_blank" rel="noopener">
+          <img id="nwplus-logo" :src="nwLogo" alt="nwPlus logo">
+        </a>
+        <a v-on:click="toggle" class="menu-icon" href="#">
+          <img id="close" :src="close" alt="close menu">
+        </a>
+        <div class="sidebar-menu">
+          <a v-scroll-to="'#events'" href="#" class="navbar-item">About</a>
+          <a v-if="faq" v-scroll-to="'#faq'" href="#" class="navbar-item">FAQ</a>
+          <a v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
+          <a href="https://cmd-f.nwplus.io/" rel="noopener" target="_blank" class="navbar-item">2019</a>
+        </div>
+      </div>
+    </nav>
     <nav
+      v-if="!open"
       :style="{visibility: visible, opacity: opacity}"
       class="navbar"
       role="navigation"
@@ -17,6 +34,9 @@
           alt="Major League Hacking 2020 Hackathon Season"
           class="navbar-item"
         >
+      </a>
+      <a v-on:click="toggle" class="menu-icon" href="#">
+        <img id="hamburger" :src="hamburger" alt="hamburger menu">
       </a>
       <div id="navbar" class="navbar-menu">
         <div class="navbar-start" />
@@ -47,6 +67,9 @@
 </template>
 
 <script>
+import hamburger from '../assets/sprite/svg/navbar__hamburger.svg'
+import close from '../assets/sprite/svg/navbar__close.svg'
+import nwLogo from '../assets/nwlogos/nwplus-logo.svg'
 export default {
   props: {
     faq: {
@@ -58,6 +81,10 @@ export default {
     return {
       visible: 'visible',
       opacity: '1',
+      open: false,
+      close,
+      hamburger,
+      nwLogo,
       scrollFunc: () => {}
     }
   },
@@ -69,6 +96,9 @@ export default {
     window.removeEventListener('scroll', this.scrollFunc)
   },
   methods: {
+    toggle() {
+      this.open = !this.open
+    },
     handleScroll() {
       if (screen.width > 768) {
         let lastScroll = 0
@@ -177,6 +207,9 @@ a.navbar-item:focus-within {
 .is-active .buttons .navbar-item {
   color: #fff;
 }
+.menu-icon {
+  display: none;
+}
 @include until($desktop) {
   .navbar {
     background: none;
@@ -189,6 +222,32 @@ a.navbar-item:focus-within {
   }
   #navbar-logo {
     height: 30px;
+  }
+}
+@include until($tablet) {
+  #sidebar {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100vw;
+    background: #1e313f;
+    .sidebar-menu {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .navbar-item {
+        text-align: center;
+      }
+    }
+    #nwplus-logo {
+      margin: 25px 25px 0;
+    }
+  }
+  .menu-icon {
+    display: block;
+    float: right;
+    padding: 25px;
   }
 }
 </style>
