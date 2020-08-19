@@ -1,5 +1,16 @@
 <template>
   <div class="hero-section">
+    <div class="wooden-post">
+      <a v-scroll-to="'#intro'" href="#">
+        <img :src="aboutPost" alt="about">
+      </a>
+      <a v-scroll-to="'#faq'" href="#">
+        <img :src="faqPost" alt="faq">
+      </a>
+      <a v-scroll-to="'#sponza'" href="#">
+        <img :src="sponsorsPost" alt="sponsors">
+      </a>
+    </div>
     <p class="hero-presents-text">
       nwPlus presents
     </p>
@@ -11,20 +22,28 @@
       Join our mailing list for updates about our events!
     </p>
     <div class="hero-email-subscribe">
-      <input type="email" placeholder="Enter email here....">
-      <button>Subscribe</button>
+      <input v-model="email" type="email" placeholder="Enter email here....">
+      <button :class="{active: email}">
+        Subscribe
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 import lhdLogo from '../assets/sprite/svg/hero__logo.svg'
+import aboutPost from '../assets/sprite/svg/hero__about_post.svg'
+import faqPost from '../assets/sprite/svg/hero__faq_post.svg'
+import sponsorsPost from '../assets/sprite/svg/hero__sponsors_post.svg'
 export default {
-  props: {
-  },
+  props: {},
   data: function () {
     return {
-      lhdLogo: lhdLogo
+      lhdLogo,
+      aboutPost,
+      faqPost,
+      sponsorsPost,
+      email: null
     }
   },
   mounted: function () {
@@ -40,7 +59,7 @@ export default {
 @import "bulma/bulma.sass";
 
 $body-font: "Source Sans Pro", sans-serif;
-$hero-background-color: #4A414D;
+$hero-background-color: #4a414d;
 
 // Desktop CSS
 .hero-section {
@@ -50,7 +69,7 @@ $hero-background-color: #4A414D;
   background-repeat: no-repeat;
   background-size: 100vw;
   background-color: $hero-background-color;
-  min-height: 130vh;
+  min-height: 81vw;
   position: relative;
   text-align: center;
   color: white;
@@ -58,6 +77,21 @@ $hero-background-color: #4A414D;
   font-size: 14px;
   line-height: 18px;
   overflow-x: hidden;
+}
+
+.wooden-post {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 25vw;
+  left: 8vw;
+  width: 17vw;
+  img:hover {
+    transition: 0.25s;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
 }
 
 .hero-presents-text {
@@ -103,6 +137,11 @@ $hero-background-color: #4A414D;
     margin-left: -118px;
     color: white;
     outline: none;
+    transition: 0.25s;
+    &.active {
+      background: #ffbc96;
+      color: #172b3b;
+    }
   }
 }
 
@@ -110,9 +149,13 @@ $hero-background-color: #4A414D;
 @include until($tablet) {
   .hero-section {
     background-image: url("~@/assets/sprite/svg/hero__background_mobile.svg");
-    min-height: 110vh;
+    min-height: 183vw;
     font-size: 12px;
     line-height: 10px;
+  }
+
+  .wooden-post {
+    display: none;
   }
 
   .hero-presents-text {
