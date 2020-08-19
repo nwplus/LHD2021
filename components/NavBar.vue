@@ -79,8 +79,8 @@ export default {
   },
   data() {
     return {
-      visible: 'visible',
-      opacity: '1',
+      visible: screen.width > 768 ? 'hidden' : 'visible',
+      opacity: screen.width > 768 ? '0' : '1',
       open: false,
       close,
       hamburger,
