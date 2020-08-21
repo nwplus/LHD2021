@@ -67,6 +67,8 @@ $body-font: "Source Sans Pro", sans-serif;
   display: flex;
   justify-content: center;
   position: relative;
+  // Still need to look into this
+  margin-top: -20px;
 }
 
 .about-content {
@@ -76,7 +78,7 @@ $body-font: "Source Sans Pro", sans-serif;
 
 .about-bg {
   width: 100%;
-  background: #577079;
+  //background: #577079;
 }
 
 .about-p1, .about-p2 {
@@ -87,7 +89,7 @@ $body-font: "Source Sans Pro", sans-serif;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: #{'min(60ch, 80%)'};
+  width: 80%;
 }
 
 .about-p1, .about-p2 {
@@ -98,7 +100,7 @@ $body-font: "Source Sans Pro", sans-serif;
   // Text
   font-family: $body-font;
   // Override SCSS compiler, use literal
-  font-size: #{'max(1vw, 1em)'};
+  font-size: 1.5vw;
   color: white;
 }
 
@@ -106,6 +108,10 @@ $body-font: "Source Sans Pro", sans-serif;
 @include until($tablet) {
   .about-content {
     padding-top: 50%;
+  }
+  .about-p1, .about-p2 {
+    font-size: 3vw;
+    max-width: 45ch; // close to window
   }
 }
 </style>
