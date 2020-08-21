@@ -9,7 +9,7 @@
         Over the past 3 years, UBC’s Local Hack Day focused on encouraging beginners and people who are curious about technology to work on a project that focuses on these three main pillars.
       </p>
     </div>
-    <img :src="introBg" class="intro-bg">
+    <img :src="bg" class="intro-bg">
   </div>
 </template>
 
@@ -21,10 +21,33 @@ import introPlank from '../assets/sprite/svg/intro__welcome_plank.svg'
 export default {
   props: {},
   data: function () {
+    const initialBg = window.innerWidth > 769 ? introBg : introBgMobile
     return {
-      introBg,
-      introBgMobile,
+      windowWidth: window.innerWidth,
+      bg: initialBg,
       introPlank
+    }
+  },
+  watch: {
+    windowWidth(newWidth, oldWidth) {
+      if (newWidth > 769 && oldWidth <= 769) {
+        this.bg = introBg
+      } else if (newWidth < 769 && oldWidth >= 769) {
+        this.bg = introBgMobile
+      }
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.onResize)
+    })
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
+  },
+  methods: {
+    onResize() {
+      this.windowWidth = window.innerWidth
     }
   }
 }
@@ -38,33 +61,29 @@ $body-font: "Source Sans Pro", sans-serif;
 // Desktop CSS
 .intro-container {
   position: relative;
-  // Hack for weird white space, TODO: debug
-  margin-bottom: -10px;
+  margin-bottom: -20px;
 }
 
 .intro-content {
-  padding-top: 20%;
+  padding-top: 15%;
   position: absolute;
   // Centering an absolute element
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   // Must have specific width
   width: 50%;
 }
 
 .intro-bg {
   width: 100%;
-  padding-bottom: 5%;
   background: linear-gradient(180deg, #485B67 1%, #243745, #566770 75%, #072639 91%);
 }
 
 .intro-header {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
+  margin: auto;
+  //width: 80%;
 }
 
 .intro-p1, .intro-p2 {
@@ -74,26 +93,13 @@ $body-font: "Source Sans Pro", sans-serif;
   // Text
   text-align: center;
   font-family: $body-font;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   color: white;
-}
-
-// Mobile CSS
-@include until($desktop) {
-  .intro-p1, .intro-p2 {
-    font-size: 1rem;
-  }
 }
 
 @include until($tablet) {
   .intro-p1, .intro-p2 {
-    font-size: 0.7rem;
-  }
-}
-
-@include until(350px) {
-  .intro-p1, .intro-p2 {
-    font-size: 0.5rem;
+    font-size: 3vw;
   }
 }
 </style>
