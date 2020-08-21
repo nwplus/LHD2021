@@ -70,6 +70,7 @@ export default {
     img {
       display: inline;
       max-width: 200px !important;
+      max-height: 100px !important;
     }
   }
 </style>
