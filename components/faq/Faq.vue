@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div id="bulletin-title-container">
-      <img id="bulletin-title" src="~@/assets/sprite/svg/faq__section_title.svg" alt="Frequently Asked Questions">
+      <!-- <img id="bulletin-title" src="~@/assets/sprite/svg/faq__section_title.svg" alt="Frequently Asked Questions"> -->
     </div>
     <div id="bulletin-board-container">
       <div class="columns faqs">
@@ -73,7 +73,7 @@ export default {
 }
 
 #bulletin-title-container {
-  background-image: url("~@/assets/sprite/svg/faq__wooden_plank.svg");
+  background-image: url("~@/assets/sprite/svg/faq__wooden_title.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100% 80%;
@@ -163,7 +163,11 @@ export default {
 @include until($tablet) {
 
 #bulletin-board-container {
-  background-image: url("~@/assets/sprite/png/faq__mobile_bulletin_board.png");
+  background-image: url("~@/assets/sprite/svg/faq__mobile_bulletin_board.svg");
+  background-position: 35% 85%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 92%;
 }
 
 #bulletin-title-container {
