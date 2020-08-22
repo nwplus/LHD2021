@@ -33,7 +33,7 @@ $body-font: "Source Sans Pro", sans-serif;
   position: relative;
   margin-bottom: -20px;
   background-color: #274056;
-  background-image: url('../assets/sprite/svg/intro__background.svg');
+  background-image: url('../assets/sprite/png/intro__background.png');
   background-repeat: no-repeat;
   background-size: 100vw;
   min-height: 85.5vw;

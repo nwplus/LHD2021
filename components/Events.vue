@@ -62,7 +62,7 @@ $heading-font: "Caveat Brush";
 $body-font: "Source Sans Pro", sans-serif;
 
 .mainContainer {
-  background-image: url("~@/assets/sprite/svg/events__background.svg");
+  background-image: url("~@/assets/sprite/png/events__background.png");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100vw;

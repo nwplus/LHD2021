@@ -39,7 +39,7 @@ $body-font: "Source Sans Pro", sans-serif;
   justify-content: center;
   position: relative;
   // Background image
-  background-image: url('../assets/sprite/svg/about__background.svg');
+  background-image: url('../assets/sprite/png/about__background.png');
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100vw;

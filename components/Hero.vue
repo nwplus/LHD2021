@@ -64,7 +64,7 @@ $hero-background-color: #4a414d;
 // Desktop CSS
 .hero-section {
   padding-top: 5%;
-  background-image: url("~@/assets/sprite/svg/hero__background.svg");
+  background-image: url("~@/assets/sprite/png/hero__background.png");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100vw;

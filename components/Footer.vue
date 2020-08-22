@@ -133,7 +133,7 @@
   .footer-content {
     text-align: center;
     min-width: 90vw;
-    background-image: url("~@/assets/sprite/svg/footer__background.svg");
+    background-image: url("~@/assets/sprite/png/footer__background.png");
     background-color: $footer-background-color;
     background-size: cover;
     background-position: 0 0;
