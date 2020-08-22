@@ -9,45 +9,16 @@
         Over the past 3 years, UBC’s Local Hack Day focused on encouraging beginners and people who are curious about technology to work on a project that focuses on these three main pillars.
       </p>
     </div>
-    <img :src="bg" class="intro-bg">
   </div>
 </template>
 
 <script>
-import introBg from '../assets/sprite/svg/intro__background.svg'
-import introBgMobile from '../assets/sprite/svg/intro__background_m.svg'
 import introPlank from '../assets/sprite/svg/intro__welcome_plank.svg'
 
 export default {
-  props: {},
   data: function () {
-    const initialBg = window.innerWidth > 769 ? introBg : introBgMobile
     return {
-      windowWidth: window.innerWidth,
-      bg: initialBg,
       introPlank
-    }
-  },
-  watch: {
-    windowWidth(newWidth, oldWidth) {
-      if (newWidth > 769 && oldWidth <= 769) {
-        this.bg = introBg
-      } else if (newWidth < 769 && oldWidth >= 769) {
-        this.bg = introBgMobile
-      }
-    }
-  },
-  mounted() {
-    this.$nextTick(() => {
-      window.addEventListener('resize', this.onResize)
-    })
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.onResize)
-  },
-  methods: {
-    onResize() {
-      this.windowWidth = window.innerWidth
     }
   }
 }
@@ -55,13 +26,17 @@ export default {
 
 <style lang="scss" scoped>
 @import "bulma/bulma.sass";
-
 $body-font: "Source Sans Pro", sans-serif;
 
 // Desktop CSS
 .intro-container {
   position: relative;
   margin-bottom: -20px;
+  background-color: #274056;
+  background-image: url('../assets/sprite/svg/intro__background.svg');
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  min-height: 85.5vw;
 }
 
 .intro-content {
@@ -98,6 +73,10 @@ $body-font: "Source Sans Pro", sans-serif;
 }
 
 @include until($tablet) {
+  .intro-container {
+    background-image: url('../assets/sprite/svg/intro__background_m.svg');
+    min-height: 139vw;
+  }
   .intro-p1, .intro-p2 {
     font-size: 3vw;
   }
