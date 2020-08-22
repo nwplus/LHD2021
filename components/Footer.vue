@@ -127,15 +127,56 @@
 
 <style lang="scss" scoped>
   @import "bulma/bulma.sass";
+
+  $footer-background-color: #4A414D;
   //Desktop CSS:
   .footer-content {
     text-align: center;
     min-width: 90vw;
+    background-image: url("~@/assets/sprite/svg/footer__background.svg");
+    background-color: $footer-background-color;
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    min-height: 130vh;
+    color: white;
+  }
+
+  #social {
+    min-width: 90vw;
+  }
+
+  a {
+    color: white;
+    text-decoration: underline;
+    transition-duration: 0.2s;
+  }
+
+  a:hover {
+    color: #FFBC96;
   }
 
   .join-us-section {
     width: 60%;
     margin: 25px auto;
+    font-size: 20px;
+  }
+
+  #footer-social {
+    position: absolute;
+    bottom: 1vw;
+    right: 50%;
+  }
+
+  #social {
+    position: relative;
+    right: -50%;
+    margin-top: 30%;
+  }
+
+  .copyright-text {
+    font-size: 20px;
+    padding: 20px;
   }
 
   .links {
@@ -144,7 +185,7 @@
 
   .links a {
     margin: 20px;
-    text-decoration: underline;
+    font-size: 20px;
   }
 
   svg {
@@ -153,12 +194,12 @@
   }
 
   svg path {
-    fill: #2f4246;
+    fill: white;
     transition-duration: 0.2s;
   }
 
   svg:hover path {
-    fill: #969d8d;
+    fill: #FFBC96;
   }
 
   //Mobile CSS:
@@ -173,6 +214,11 @@
 
     .links a {
       margin: 10px;
+      font-size: 12px;
+    }
+
+    .copyright-text {
+      font-size: 12px;
     }
 
     svg {
@@ -182,12 +228,18 @@
   }
 
   @include until($tablet) {
+    .footer-content {
+      background-image: url("~@/assets/sprite/svg/footer__background_mobile.svg");
+      background-position: 50% 0;
+      min-height: 237vw;
+    }
+
     .join-us-section {
       width: 85vw;
     }
   }
 
-  @include until(350px) {
+  @include until(370px) {
     .links {
       display: flex;
       flex-direction: column;
