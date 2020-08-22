@@ -128,13 +128,11 @@
 <style lang="scss" scoped>
   @import "bulma/bulma.sass";
 
-  $footer-background-color: #4A414D;
   //Desktop CSS:
   .footer-content {
     text-align: center;
     min-width: 90vw;
     background-image: url("~@/assets/sprite/png/footer__background.png");
-    background-color: $footer-background-color;
     background-size: cover;
     background-position: 0 0;
     background-repeat: no-repeat;
@@ -214,6 +212,10 @@
 
     .links a {
       margin: 10px;
+      font-size: 12px;
+    }
+
+    .join-us-section {
       font-size: 12px;
     }
 

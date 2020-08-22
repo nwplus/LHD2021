@@ -59,7 +59,6 @@ export default {
 @import "bulma/bulma.sass";
 
 $body-font: "Source Sans Pro", sans-serif;
-$hero-background-color: #4a414d;
 
 // Desktop CSS
 .hero-section {
@@ -68,7 +67,6 @@ $hero-background-color: #4a414d;
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100vw;
-  background-color: $hero-background-color;
   min-height: 81vw;
   position: relative;
   text-align: center;

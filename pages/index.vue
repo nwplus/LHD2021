@@ -5,12 +5,10 @@
       <div class="mainContent">
         <Hero />
         <Intro id="intro" :intro="intro" :volunteerOpen="volunteerFlag" :mentorOpen="mentorFlag" />
-        <div id="scaledSection">
-          <Events id="events" :items="events" />
-          <About id="about" />
-          <FAQ id="faq" v-if="faqFlag" :items="FAQs" />
-          <Sponza id="sponza" v-if="sponsorFlag" :items="sponsors" />
-        </div>
+        <Events id="events" :items="events" />
+        <About id="about" />
+        <FAQ id="faq" v-if="faqFlag" :items="FAQs" />
+        <Sponza id="sponza" v-if="sponsorFlag" :items="sponsors" />
       </div>
     </section>
     <Footer :text="footer" />
@@ -27,6 +25,7 @@ import fireDb from '~/plugins/firebase.js'
 import Events from '~/components/Events.vue'
 import About from '~/components/About.vue'
 import FAQ from '~/components/faq/Faq.vue'
+
 export default {
   components: {
     NavBar,
@@ -80,7 +79,7 @@ export default {
 $body-font: "Source Sans Pro", sans-serif;
 
 #main-page {
-  background: #4A414C;
+  background: linear-gradient(180deg, #4A414C 8.34%, #061A2C 9.19%, #586971 14.68%, #3A3946 16.43%, #042539 20.49%, #67757B 26.66%, #B5B5B5 30.2%, #453F4B 34.08%);
   font-family: $body-font;
 }
 </style>

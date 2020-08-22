@@ -43,10 +43,7 @@ $body-font: "Source Sans Pro", sans-serif;
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100vw;
-  background-color: #46414D;
   min-height: 85.5vw;
-  // TODO: Still need to look into this
-  margin-top: -20px;
 }
 
 .about-content {
@@ -56,7 +53,6 @@ $body-font: "Source Sans Pro", sans-serif;
 
 .about-bg {
   width: 100%;
-  //background: #577079;
 }
 
 .about-p1, .about-p2 {

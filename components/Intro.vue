@@ -31,8 +31,6 @@ $body-font: "Source Sans Pro", sans-serif;
 // Desktop CSS
 .intro-container {
   position: relative;
-  margin-bottom: -20px;
-  background-color: #274056;
   background-image: url('../assets/sprite/png/intro__background.png');
   background-repeat: no-repeat;
   background-size: 100vw;

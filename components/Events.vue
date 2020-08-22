@@ -56,7 +56,6 @@ $gap: 6%;
 $mobile: 415px;
 $dark-brown: #56321e;
 $brown: #817067;
-$dark-blue: #06273a;
 $white: #ffffff;
 $heading-font: "Caveat Brush";
 $body-font: "Source Sans Pro", sans-serif;
@@ -69,7 +68,6 @@ $body-font: "Source Sans Pro", sans-serif;
   min-height: 133vw;
   position: relative;
   &::before {
-    background: linear-gradient(180deg, $dark-blue 0%, $white 100%);
     display: block;
     content: "";
     position: absolute;
