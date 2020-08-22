@@ -13,45 +13,16 @@
         situation within BC and provide updates through our website and social media channels should anything change.
       </p>
     </div>
-    <img :src="bg" class="about-bg">
   </div>
 </template>
 
 <script>
-import aboutBg from '../assets/sprite/svg/about__background.svg'
-import aboutBgMobile from '../assets/sprite/svg/about__background_m.svg'
 import aboutPlank from '../assets/sprite/svg/about__welcome_plank.svg'
 
 export default {
-  props: {},
   data: function () {
-    const initialBg = window.innerWidth > 769 ? aboutBg : aboutBgMobile
     return {
-      windowWidth: window.innerWidth,
-      bg: initialBg,
       aboutPlank
-    }
-  },
-  watch: {
-    windowWidth(newWidth, oldWidth) {
-      if (newWidth > 769 && oldWidth <= 769) {
-        this.bg = aboutBg
-      } else if (newWidth < 769 && oldWidth >= 769) {
-        this.bg = aboutBgMobile
-      }
-    }
-  },
-  mounted() {
-    this.$nextTick(() => {
-      window.addEventListener('resize', this.onResize)
-    })
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.onResize)
-  },
-  methods: {
-    onResize() {
-      this.windowWidth = window.innerWidth
     }
   }
 }
@@ -67,7 +38,14 @@ $body-font: "Source Sans Pro", sans-serif;
   display: flex;
   justify-content: center;
   position: relative;
-  // Still need to look into this
+  // Background image
+  background-image: url('../assets/sprite/svg/about__background.svg');
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  background-color: #46414D;
+  min-height: 85.5vw;
+  // TODO: Still need to look into this
   margin-top: -20px;
 }
 
@@ -106,6 +84,12 @@ $body-font: "Source Sans Pro", sans-serif;
 
 // Mobile CSS
 @include until($tablet) {
+  .about-container {
+    background-image: url('../assets/sprite/svg/about__background_m.svg');
+    min-height: 200vw;
+    margin-top: -6px;
+    background-color: transparent;
+  }
   .about-content {
     padding-top: 50%;
   }
