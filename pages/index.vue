@@ -80,7 +80,5 @@ export default {
 $body-font: "Source Sans Pro", sans-serif;
 
 #main-page {
-  background: #4A414C;
-  font-family: $body-font;
 }
 </style>
