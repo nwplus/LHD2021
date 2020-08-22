@@ -29,7 +29,6 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap");
 @import "bulma/bulma.sass";
 
-$body-font: "Source Sans Pro", sans-serif;
 $body-color: #56321E;
 
 //Desktop CSS:
@@ -46,7 +45,6 @@ $body-color: #56321E;
     width: 90%;
     margin: auto;
     padding: 25px 0px 3vh 15px;
-    font-family: $body-font;
     color: $body-color;
     font-size: 12px;
     line-height: 15px;
