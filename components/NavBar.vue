@@ -1,6 +1,28 @@
 <template>
   <nav>
-    <nav :style="{visibility: visible, opacity: opacity}" class="navbar" role="navigation" aria-label="main navigation">
+    <nav v-if="open">
+      <div id="sidebar">
+        <a href="https://www.nwplus.io/" target="_blank" rel="noopener">
+          <img id="nwplus-logo" :src="nwLogo" alt="nwPlus logo">
+        </a>
+        <a v-on:click="toggle" class="menu-icon" href="#">
+          <img id="close" :src="close" alt="close menu">
+        </a>
+        <div v-on:click="toggle" class="sidebar-menu">
+          <a v-scroll-to="'#events'" href="#" class="navbar-item">About</a>
+          <a v-if="faq" v-scroll-to="'#faq'" href="#" class="navbar-item">FAQ</a>
+          <a v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
+          <a href="https://cmd-f.nwplus.io/" rel="noopener" target="_blank" class="navbar-item">2019</a>
+        </div>
+      </div>
+    </nav>
+    <nav
+      v-if="!open"
+      :style="{visibility: visible, opacity: opacity}"
+      class="navbar"
+      role="navigation"
+      aria-label="main navigation"
+    >
       <a
         href="https://mlh.io/seasons/na-2020/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2020-season&utm_content=black"
         target="_blank"
@@ -11,7 +33,11 @@
           src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-black.svg"
           alt="Major League Hacking 2020 Hackathon Season"
           class="navbar-item"
-        ></a>
+        >
+      </a>
+      <a v-on:click="toggle" class="menu-icon" href="#">
+        <img id="hamburger" :src="hamburger" alt="hamburger menu">
+      </a>
       <div id="navbar" class="navbar-menu">
         <div class="navbar-start" />
         <div class="navbar-end">
@@ -19,7 +45,12 @@
             <a v-scroll-to="'#events'" href="#" class="navbar-item">About</a>
             <a v-if="faq" v-scroll-to="'#faq'" href="#" class="navbar-item">FAQ</a>
             <a v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
-            <a href="https://cmd-f.nwplus.io/" rel="noopener" target="_blank" class="navbar-item">2019</a>
+            <a
+              href="https://cmd-f.nwplus.io/"
+              rel="noopener"
+              target="_blank"
+              class="navbar-item"
+            >2019</a>
           </div>
           <a href="https://www.nwplus.io/" target="_blank" rel="noopener">
             <img
@@ -36,6 +67,9 @@
 </template>
 
 <script>
+import hamburger from '../assets/sprite/svg/navbar__hamburger.svg'
+import close from '../assets/sprite/svg/navbar__close.svg'
+import nwLogo from '../assets/nwlogos/nwplus-logo.svg'
 export default {
   props: {
     faq: {
@@ -45,8 +79,12 @@ export default {
   },
   data() {
     return {
-      visible: 'visible',
-      opacity: '1',
+      visible: screen.width > 768 ? 'hidden' : 'visible',
+      opacity: screen.width > 768 ? '0' : '1',
+      open: false,
+      close,
+      hamburger,
+      nwLogo,
       scrollFunc: () => {}
     }
   },
@@ -58,11 +96,15 @@ export default {
     window.removeEventListener('scroll', this.scrollFunc)
   },
   methods: {
+    toggle() {
+      this.open = !this.open
+    },
     handleScroll() {
       if (screen.width > 768) {
         let lastScroll = 0
         return (event) => {
-          const scroll = window.pageYOffset || document.documentElement.scrollTop
+          const scroll =
+            window.pageYOffset || document.documentElement.scrollTop
           if (scroll <= 0) {
             this.visible = 'visible'
             this.opacity = '1'
@@ -77,7 +119,8 @@ export default {
         }
       } else {
         return (event) => {
-          const scroll = window.pageYOffset || document.documentElement.scrollTop
+          const scroll =
+            window.pageYOffset || document.documentElement.scrollTop
           if (scroll <= 80) {
             this.visible = 'visible'
             this.opacity = '1'
@@ -94,10 +137,11 @@ export default {
 
 <style lang="scss" scoped>
 @import "bulma/bulma.sass";
+$white: #ffffff;
 
 .navbar {
-  font-family: 'Zilla Slab', serif;
-  font-weight: bold;
+  font-family: Source Sans Pro;
+  font-weight: normal;
   background: none;
   color: rgba(1, 1, 1, 0);
   position: fixed;
@@ -112,16 +156,16 @@ export default {
   text-decoration: none;
   font-size: 18px;
   padding: 0px 32px;
-  color: #2F4246;
+  color: $white;
   padding-top: 15px;
 }
 .navbar-item::after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 2px;
-  background: #2F4246;
-  transition: width .3s;
+  background: $white;
+  transition: width 0.3s;
 }
 .navbar-item:hover::after {
   width: 100%;
@@ -130,7 +174,7 @@ a.navbar-item:hover,
 a.navbar-item:focus,
 a.navbar-item:focus-within {
   background: none;
-  color: #2F4246
+  color: $white;
 }
 .buttons {
   margin-right: 78px;
@@ -163,7 +207,10 @@ a.navbar-item:focus-within {
 .is-active .buttons .navbar-item {
   color: #fff;
 }
-@include until ($desktop) {
+.menu-icon {
+  display: none;
+}
+@include until($desktop) {
   .navbar {
     background: none;
   }
@@ -175,6 +222,32 @@ a.navbar-item:focus-within {
   }
   #navbar-logo {
     height: 30px;
+  }
+}
+@include until($tablet) {
+  #sidebar {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    height: 100%;
+    width: 100vw;
+    background: #1e313f;
+    .sidebar-menu {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .navbar-item {
+        text-align: center;
+      }
+    }
+    #nwplus-logo {
+      margin: 25px 25px 0;
+    }
+  }
+  .menu-icon {
+    display: block;
+    float: right;
+    padding: 25px;
   }
 }
 </style>
