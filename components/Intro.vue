@@ -1,64 +1,84 @@
 <template>
-  <div class="intro-section">
-    <p class="intro-header-pre">
-      Welcome to
-    </p>
-    <h1 class="intro-header">
-      Local Hack Day
-    </h1>
-    <p class="intro-p1">
-      UBC Local Hack Day revolves around <b>inclusivity, diversity, and accessibility</b> — we want you to bring your unique perspectives and experiences to the table!
-    </p>
-    <p class="intro-p2">
-      Over the past 3 years, UBC’s Local Hack Day focused on encouraging beginners and people who are curious about technology to work on a project that focuses on these three main pillars.
-    </p>
+  <div class="intro-container">
+    <div class="intro-content">
+      <img :src="introPlank" class="intro-header">
+      <p class="intro-p1">
+        UBC Local Hack Day revolves around <b>inclusivity, diversity, and accessibility</b> — we want you to bring your unique perspectives and experiences to the table!
+      </p>
+      <p class="intro-p2">
+        Over the past 3 years, UBC’s Local Hack Day focused on encouraging beginners and people who are curious about technology to work on a project that focuses on these three main pillars.
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
+import introPlank from '../assets/sprite/svg/intro__welcome_plank.svg'
+
+export default {
+  data: function () {
+    return {
+      introPlank
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
 @import "bulma/bulma.sass";
-
 $body-font: "Source Sans Pro", sans-serif;
 
 // Desktop CSS
-.intro-section {
-  background-image: url("~@/assets/sprite/svg/intro__background.svg");
+.intro-container {
+  position: relative;
+  margin-bottom: -20px;
+  background-color: #274056;
+  background-image: url('../assets/sprite/svg/intro__background.svg');
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  min-height: 85.5vw;
 }
 
-.intro-header, .intro-p1, .intro-p2 {
-  text-align: center;
+.intro-content {
+  padding-top: 15%;
+  position: absolute;
+  // Centering an absolute element
+  left: 0;
+  right: 0;
+  margin: auto;
+  // Must have specific width
+  width: 50%;
 }
+
+.intro-bg {
+  width: 100%;
+  background: linear-gradient(180deg, #485B67 1%, #243745, #566770 75%, #072639 91%);
+}
+
 .intro-header {
-  font-size: 30px;
-  color: #56321E;
-}
-
-.intro-header-pre {
-  font-size: 12px;
-  color: #56321E;
-  text-align: center;
+  display: block;
+  margin: auto;
+  //width: 80%;
 }
 
 .intro-p1, .intro-p2 {
   // Spacing
-  margin: 1em auto;
   max-width: $tablet;
+  margin: 1em auto 0 auto;
   // Text
+  text-align: center;
   font-family: $body-font;
-  font-size: 24px;
+  font-size: 1.5vw;
   color: white;
 }
-// Mobile CSS
+
 @include until($tablet) {
-  .intro-background {
-    background-image: url("~@/assets/sprite/svg/intro__background_m.svg");
+  .intro-container {
+    background-image: url('../assets/sprite/svg/intro__background_m.svg');
+    min-height: 139vw;
   }
-  .intro-p1, .intro-p2, .intro-header {
-    margin: 1em;
-    text-align: center;
+  .intro-p1, .intro-p2 {
+    font-size: 3vw;
   }
 }
 </style>
