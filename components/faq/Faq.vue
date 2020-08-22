@@ -76,7 +76,7 @@ export default {
   background-image: url("~@/assets/sprite/svg/faq__wooden_title.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
-  background-size: 100% 80%;
+  background-size: 100% 100%;
   position: relative;
   z-index: 1;
   display: block;
@@ -96,13 +96,11 @@ export default {
 }
 
 #bulletin-board-container {
-  background-image: url("~@/assets/sprite/png/faq__bulletin_board.png");
+  background-image: url("~@/assets/sprite/svg/faq__bulletin_board.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   position: relative;
-  height: 100%;
-  width: 100%;
   margin: auto;
 }
 
@@ -164,9 +162,9 @@ export default {
 
 #bulletin-board-container {
   background-image: url("~@/assets/sprite/svg/faq__mobile_bulletin_board.svg");
-  background-position: 35% 85%;
+  background-position: 50% 98%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   width: 92%;
 }
 
