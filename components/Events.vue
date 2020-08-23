@@ -76,7 +76,7 @@ $body-font: "Source Sans Pro", sans-serif;
     z-index: -1;
   }
   @include until($tablet) {
-    background-image: url("~@/assets/sprite/svg/events__background_sm.svg");
+    background-image: url("~@/assets/sprite/png/events__background_sm.png");
     min-height: 237vw;
   }
 }

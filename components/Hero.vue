@@ -146,8 +146,8 @@ $body-font: "Source Sans Pro", sans-serif;
 // Mobile CSS
 @include until($tablet) {
   .hero-section {
-    background-image: url("~@/assets/sprite/svg/hero__background_mobile.svg");
-    min-height: 183vw;
+    background-image: url("~@/assets/sprite/png/hero__background_mobile.png");
+    min-height: 165vw;
     font-size: 12px;
     line-height: 10px;
   }

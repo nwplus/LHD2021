@@ -231,7 +231,7 @@
 
   @include until($tablet) {
     .footer-content {
-      background-image: url("~@/assets/sprite/svg/footer__background_mobile.svg");
+      background-image: url("~@/assets/sprite/png/footer__background_mobile.png");
       background-position: 50% 0;
       min-height: 237vw;
     }

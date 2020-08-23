@@ -81,7 +81,7 @@ $body-font: "Source Sans Pro", sans-serif;
 // Mobile CSS
 @include until($tablet) {
   .about-container {
-    background-image: url('../assets/sprite/svg/about__background_m.svg');
+    background-image: url('../assets/sprite/png/about__background_m.png');
     min-height: 200vw;
     margin-top: -6px;
     background-color: transparent;
