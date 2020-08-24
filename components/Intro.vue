@@ -73,7 +73,7 @@ $body-font: "Source Sans Pro", sans-serif;
 @include until($tablet) {
   .intro-container {
     background-image: url('../assets/sprite/png/intro__background_m.png');
-    min-height: 139vw;
+    min-height: 150vw;
   }
   .intro-p1, .intro-p2 {
     font-size: 3vw;
