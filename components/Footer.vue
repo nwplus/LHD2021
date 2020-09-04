@@ -128,13 +128,11 @@
 <style lang="scss" scoped>
   @import "bulma/bulma.sass";
 
-  $footer-background-color: #4A414D;
   //Desktop CSS:
   .footer-content {
     text-align: center;
     min-width: 90vw;
-    background-image: url("~@/assets/sprite/svg/footer__background.svg");
-    background-color: $footer-background-color;
+    background-image: url("~@/assets/sprite/png/footer__background.png");
     background-size: cover;
     background-position: 0 0;
     background-repeat: no-repeat;
@@ -217,6 +215,10 @@
       font-size: 12px;
     }
 
+    .join-us-section {
+      font-size: 12px;
+    }
+
     .copyright-text {
       font-size: 12px;
     }
@@ -229,7 +231,7 @@
 
   @include until($tablet) {
     .footer-content {
-      background-image: url("~@/assets/sprite/svg/footer__background_mobile.svg");
+      background-image: url("~@/assets/sprite/png/footer__background_mobile.png");
       background-position: 50% 0;
       min-height: 237vw;
     }

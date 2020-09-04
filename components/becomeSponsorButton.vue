@@ -11,6 +11,8 @@
 </template>
 
 <style scoped lang="scss">
+@import "bulma/bulma.sass";
+
 #sponzaButton {
   background: rgba(6, 26, 44, 0.76);
   border: 20px solid rgba(6, 26, 44, 0.76);
@@ -21,5 +23,12 @@
 
 #sponzaButton:hover {
   filter: drop-shadow(0px 8px 4px rgba(0, 0, 0, 0.25));
+}
+
+@include until($desktop) {
+  #sponzaButton {
+    font-size: 12px;
+    border-width: 15px;
+  }
 }
 </style>

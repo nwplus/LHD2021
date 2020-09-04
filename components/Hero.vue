@@ -59,16 +59,14 @@ export default {
 @import "bulma/bulma.sass";
 
 $body-font: "Source Sans Pro", sans-serif;
-$hero-background-color: #4a414d;
 
 // Desktop CSS
 .hero-section {
   padding-top: 5%;
-  background-image: url("~@/assets/sprite/svg/hero__background.svg");
+  background-image: url("~@/assets/sprite/png/hero__background.png");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100vw;
-  background-color: $hero-background-color;
   min-height: 81vw;
   position: relative;
   text-align: center;
@@ -148,8 +146,8 @@ $hero-background-color: #4a414d;
 // Mobile CSS
 @include until($tablet) {
   .hero-section {
-    background-image: url("~@/assets/sprite/svg/hero__background_mobile.svg");
-    min-height: 183vw;
+    background-image: url("~@/assets/sprite/png/hero__background_mobile.png");
+    min-height: 165vw;
     font-size: 12px;
     line-height: 10px;
   }

@@ -56,20 +56,18 @@ $gap: 6%;
 $mobile: 415px;
 $dark-brown: #56321e;
 $brown: #817067;
-$dark-blue: #06273a;
 $white: #ffffff;
 $heading-font: "Caveat Brush";
 $body-font: "Source Sans Pro", sans-serif;
 
 .mainContainer {
-  background-image: url("~@/assets/sprite/svg/events__background.svg");
+  background-image: url("~@/assets/sprite/png/events__background.png");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100vw;
   min-height: 133vw;
   position: relative;
   &::before {
-    background: linear-gradient(180deg, $dark-blue 0%, $white 100%);
     display: block;
     content: "";
     position: absolute;
@@ -78,7 +76,7 @@ $body-font: "Source Sans Pro", sans-serif;
     z-index: -1;
   }
   @include until($tablet) {
-    background-image: url("~@/assets/sprite/svg/events__background_sm.svg");
+    background-image: url("~@/assets/sprite/png/events__background_sm.png");
     min-height: 237vw;
   }
 }

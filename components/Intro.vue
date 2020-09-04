@@ -31,9 +31,7 @@ $body-font: "Source Sans Pro", sans-serif;
 // Desktop CSS
 .intro-container {
   position: relative;
-  margin-bottom: -20px;
-  background-color: #274056;
-  background-image: url('../assets/sprite/svg/intro__background.svg');
+  background-image: url('../assets/sprite/png/intro__background.png');
   background-repeat: no-repeat;
   background-size: 100vw;
   min-height: 85.5vw;
@@ -74,8 +72,8 @@ $body-font: "Source Sans Pro", sans-serif;
 
 @include until($tablet) {
   .intro-container {
-    background-image: url('../assets/sprite/svg/intro__background_m.svg');
-    min-height: 139vw;
+    background-image: url('../assets/sprite/png/intro__background_m.png');
+    min-height: 150vw;
   }
   .intro-p1, .intro-p2 {
     font-size: 3vw;

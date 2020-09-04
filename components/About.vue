@@ -39,14 +39,11 @@ $body-font: "Source Sans Pro", sans-serif;
   justify-content: center;
   position: relative;
   // Background image
-  background-image: url('../assets/sprite/svg/about__background.svg');
+  background-image: url('../assets/sprite/png/about__background.png');
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100vw;
-  background-color: #46414D;
   min-height: 85.5vw;
-  // TODO: Still need to look into this
-  margin-top: -20px;
 }
 
 .about-content {
@@ -56,7 +53,6 @@ $body-font: "Source Sans Pro", sans-serif;
 
 .about-bg {
   width: 100%;
-  //background: #577079;
 }
 
 .about-p1, .about-p2 {
@@ -85,7 +81,7 @@ $body-font: "Source Sans Pro", sans-serif;
 // Mobile CSS
 @include until($tablet) {
   .about-container {
-    background-image: url('../assets/sprite/svg/about__background_m.svg');
+    background-image: url('../assets/sprite/png/about__background_m.png');
     min-height: 200vw;
     margin-top: -6px;
     background-color: transparent;

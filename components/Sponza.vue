@@ -73,8 +73,6 @@ export default {
 <style scoped lang="scss">
 @import "bulma/bulma.sass";
 
-$sponsor-background-color: #4A414D;
-
 //Desktop CSS:
 .sponsorCategory {
   margin-bottom: 20px;
@@ -92,7 +90,6 @@ $sponsor-background-color: #4A414D;
   position: relative;
   margin-top: 2%;
   text-align: center;
-  background-color: $sponsor-background-color;
 }
 
 .sponsor-sash {
