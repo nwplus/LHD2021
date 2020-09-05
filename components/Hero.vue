@@ -23,7 +23,7 @@
     </p>
     <div class="hero-email-subscribe">
       <input v-model="email" type="email" placeholder="Enter email here....">
-      <button :class="{active: email}">
+      <button :class="{active: email}" @click="submit">
         Subscribe
       </button>
     </div>
@@ -50,6 +50,44 @@ export default {
     setTimeout(() => {
       this.isTimeout = true
     }, 300)
+  },
+  methods: {
+    async submit() {
+      try {
+        await this.$axios.post(process.env.mailingListUrl, {
+          email: this.email
+        })
+        this.email = ''
+        this.$toast.success('Successfully added you to our mailing list!', {
+          duration: 2500,
+          type: 'success',
+          position: 'bottom-center'
+        })
+      } catch (e) {
+        const reply = e.response
+        if (reply.status === 409) {
+          this.$toast.error('You are already subscribed!', {
+            duration: 2500,
+            position: 'bottom-center',
+            type: 'error'
+          })
+        }
+        if (reply.status === 502) {
+          this.$toast.error(`An error occured: ${reply.data.errors}`, {
+            duration: 2500,
+            position: 'bottom-center',
+            type: 'error'
+          })
+        }
+        if (reply.status === 400 || reply.status === 500) {
+          this.$toast.error(reply.data, {
+            duration: 2500,
+            position: 'bottom-center',
+            type: 'error'
+          })
+        }
+      }
+    }
   }
 }
 </script>
@@ -121,12 +159,14 @@ $body-font: "Source Sans Pro", sans-serif;
     border-radius: 33px;
     padding-left: 20px;
     outline: none;
+    padding-right: 7%;
   }
   ::placeholder {
     color: white;
   }
 
   button {
+    cursor: pointer;
     width: 115px;
     height: 52px;
     background: rgba(6, 26, 44, 0.76);
