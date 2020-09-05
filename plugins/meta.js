@@ -17,11 +17,11 @@ function metaMarkup({ name, description, image, url }) {
 function meta({ route, html }) {
   // meta tags (fill in your info here / dynamic per route)
   const metaTags = {
-    name: 'cmd-f 2020',
+    name: 'LHD 2020',
     description:
-      'British Columbia’s all-female* hackathon. Held March 7-8th, 2020 at UBC',
-    image: 'https://cmd-f.nwplus.io/thumbnail.png',
-    url: 'https://cmd-f.nwplus.io'
+      'Learn, Build, Share',
+    image: 'https://lhd.nwplus.io/thumbnail.png',
+    url: 'https://lhd.nwplus.io'
   }
 
   // Load Nuxt generared HTML
