@@ -22,7 +22,7 @@
       Join our mailing list for updates about our events!
     </p>
     <div class="hero-email-subscribe">
-      <input v-model="email" type="email" placeholder="Enter email here....">
+      <input v-model="email" class="email-input" type="email" placeholder="Enter email here....">
       <button :class="{active: email}">
         Subscribe
       </button>
@@ -90,6 +90,10 @@ $body-font: "Source Sans Pro", sans-serif;
       transform: scale(1.05);
     }
   }
+}
+
+.email-input {
+  padding-right: 7%;
 }
 
 .hero-presents-text {
