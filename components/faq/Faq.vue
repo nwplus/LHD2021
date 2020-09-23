@@ -72,9 +72,9 @@ export default {
 
 #bulletin-title-container {
   background-image: url("~@/assets/sprite/svg/faq__wooden_title.svg");
-  background-position: 0 0;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: contain;
   position: relative;
   z-index: 1;
   display: block;
@@ -112,11 +112,12 @@ export default {
 }
 
 .faqnote {
+  position: relative;
   transition: transform .2s; /* Animation */
+  z-index: 5;
 }
 
 .faqnote:hover {
-  position: relative;
   transform: scale(1.6);
   z-index: 10;
 }
