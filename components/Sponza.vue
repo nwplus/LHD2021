@@ -2,22 +2,22 @@
   <div class="sponza">
     <div id="sponsorList">
       <div class="sponsorCategory">
-        <div v-for="item in listOfTera" :key="item.name" class="sponsorWrapper">
+        <div v-for="item in listOfPlatinum" :key="item.name" class="sponsorWrapper">
           <SponsorImage :item="item" />
         </div>
       </div>
       <div class="sponsorCategory">
-        <div v-for="item in listOfGiga" :key="item.name" class="sponsorWrapper">
+        <div v-for="item in listOfGold" :key="item.name" class="sponsorWrapper">
           <SponsorImage :item="item" />
         </div>
       </div>
       <div class="sponsorCategory">
-        <div v-for="item in listOfMega" :key="item.name" class="sponsorWrapper">
+        <div v-for="item in listOfSilver" :key="item.name" class="sponsorWrapper">
           <SponsorImage :item="item" />
         </div>
       </div>
       <div class="sponsorCategory">
-        <div v-for="item in listOfKilo" :key="item.name" class="sponsorWrapper">
+        <div v-for="item in listOfBronze" :key="item.name" class="sponsorWrapper">
           <SponsorImage :item="item" />
         </div>
       </div>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import sponsorSash from '../assets/sprite/svg/sponsor__backgound.svg'
+import sponsorSash from 'assets/sprite/svg/sponsor__background.svg'
 import SponsorImage from '~/components/SponsorImage'
 import BecomeSponsorButton from '~/components/becomeSponsorButton'
 
@@ -51,20 +51,20 @@ export default {
     }
   },
   computed: {
-    listOfTera: function () {
-      return this.items.filter(item => item.rank === 'tera')
+    listOfPlatinum: function () {
+      return this.items.filter(item => item.tier === 'Platinum/Title Sponsor')
     },
-    listOfGiga: function () {
-      return this.items.filter(item => item.rank === 'giga')
+    listOfGold: function () {
+      return this.items.filter(item => item.tier === 'Gold')
     },
-    listOfMega: function () {
-      return this.items.filter(item => item.rank === 'mega')
+    listOfSilver: function () {
+      return this.items.filter(item => item.tier === 'Silver')
     },
-    listOfKilo: function () {
-      return this.items.filter(item => item.rank === 'kilo')
+    listOfBronze: function () {
+      return this.items.filter(item => item.tier === 'Bronze')
     },
     listOfInKind: function () {
-      return this.items.filter(item => item.rank === 'in-kind')
+      return this.items.filter(item => item.tier === 'Inkind')
     }
   }
 }
