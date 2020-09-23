@@ -4,19 +4,18 @@ import { meta } from './plugins/meta'
 // Handles production env variables when building (These can be public)
 const envVars = process.env.DEPLOY_ENV === 'GH_PAGES' || process.env.DEPLOY_ENV === 'PRODUCTION' ? {
   env: {
-    FIREBASE_API_KEY: 'AIzaSyCBkQHeikIsiYZ2yOHiqH_mGJKDWMDU500',
-    FIREBASE_AUTH_DOMAIN: 'nwhacks-2019.firebaseapp.com',
-    FIREBASE_DATABASE_URL: 'https://nwhacks-2019.firebaseio.com',
-    FIREBASE_PROJECT_ID: 'nwhacks-2019',
-    FIREBASE_STORAGE_BUCKET: 'nwhacks-2019',
-    FIREBASE_MESSAGING_SENDER_ID: '98283589440',
-    RECAPTCHA_SITE_KEY: '6Lf-PXcUAAAAAKqB-M3SNbBz5D67TtHAo94_YwyJ',
-    WEBSITE_NAME: 'cmd-f_2020',
-    mailingListUrl: 'https://us-central1-nwhacks-2019.cloudfunctions.net/subscribeToMailingList'
+    NUXT_ENV_FIREBASE_API_KEY: 'AIzaSyDGa7alU0NhfBATSQ6CalkY4Za9wWPrM7o',
+    NUXT_ENV_FIREBASE_AUTH_DOMAIN: 'nwplus-ubc.firebaseapp.com',
+    NUXT_ENV_FIREBASE_DATABASE_URL: 'https://nwplus-ubc.firebaseio.com',
+    NUXT_ENV_FIREBASE_PROJECT_ID: 'nwplus-ubc',
+    NUXT_ENV_FIREBASE_STORAGE_BUCKET: 'nwplus-ubc.appspot.com',
+    NUXT_ENV_FIREBASE_MESSAGING_SENDER_ID: '306881258768',
+    NUXT_ENV_FIREBASE_APP_ID: '1:306881258768:web:bc922148732abee79f7195',
+    mailingListUrl: 'https://us-central1-nwplus-ubc-dev.cloudfunctions.net/addToMailingList'
   }
 } : {
   env: {
-    mailingListUrl: 'http://localhost:5000/nwhacks-2019-dev/us-central1/subscribeToMailingList/'
+    mailingListUrl: 'https://us-central1-nwplus-ubc-dev.cloudfunctions.net/addToMailingList'
   }
 }
 
@@ -33,13 +32,16 @@ export default {
   },
 
   head: {
-    title: 'cmd-f 2020',
+    title: 'LHD 2020',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap' }
+    ]
   },
 
   /*
@@ -86,6 +88,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/svg-sprite',
     'nuxt-buefy',
+    '@nuxtjs/toast',
     [
       'nuxt-buefy',
       {
@@ -95,7 +98,7 @@ export default {
     [
       '@nuxtjs/google-analytics',
       {
-        id: 'UA-144737203-1',
+        id: 'UA-172083124-1',
         dev: false
       }
     ],

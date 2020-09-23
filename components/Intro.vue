@@ -1,89 +1,82 @@
 <template>
-  <div class="intro-section">
-    <div :class="{visible: isTimeout}" class="header">
-      <div class="header-content">
-        <div class="mobile-h1-wrapper">
-          <h1 class="mobile-h1">
-            change the norm
-          </h1>
-        </div>
-        <p><strong>March 07-08, 2020</strong></p>
-        <p>Vancouver’s all-female* hackathon</p>
-        <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSf0C-8InaaZoTOhlZfowGVhg9R4UwKn4Pdvcw6si2oRGff9TA/viewform"
-          rel="noopener"
-          target="_blank"
-        >
-          <button class="hackerButton">Apply Now</button>
-        </a>
-        <a
-          v-if="mentorOpen"
-          href="https://docs.google.com/forms/d/e/1FAIpQLScAldaf6ABAEI6rVNH6xjjmuBr_dq6fQFviKxMyTURNeV696g/viewform"
-          rel="noopener"
-          target="_blank"
-        >Interested in Mentoring?</a>
-        <a
-          v-if="volunteerOpen"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSeT1GHNpahF8hYyJiEneFzazKCJddT9M72a_-jmGdInP6NLHw/viewform"
-          rel="noopener"
-          target="_blank"
-        >I want to volunteer!</a>
-      </div>
-    </div>
-    <div class="subheader">
-      <div class="subheader-content">
-        <p>
-          Join us on International Women*'s Day at British Columbia's first and largest all-female* hackathon to
-          explore new technologies and celebrate women* in tech.
-        </p>
-      </div>
-      <div class="subheader-content-body">
-        <p id="subheader-body-main">
-          We're here to break stereotypes and create a safe space for women* where they can learn new skills, build
-          confidence, and discover a supportive community. Whether you're a first time hacker or a veteran, we want to
-          help you take your next steps in tech. Come join us for a fun weekend of hacking with amazing workshops,
-          social events, and food!
-        </p>
-        <p id="acknowledgement">
-          * The cmd-f team would like to acknowledge that "female" or "women" is not an accurate description for many
-          people and may make some feel unwelcome. We use * to include cis and trans women, as well as non-binary,
-          agender and intersex people.
-        </p>
-      </div>
+  <div class="intro-container">
+    <div class="intro-content">
+      <img :src="introPlank" class="intro-header">
+      <p class="intro-p1">
+        UBC Local Hack Day revolves around <b>inclusivity, diversity, and accessibility</b> — we want you to bring your unique perspectives and experiences to the table!
+      </p>
+      <p class="intro-p2">
+        Over the past 3 years, UBC’s Local Hack Day focused on encouraging beginners and people who are curious about technology to work on a project that focuses on these three main pillars.
+      </p>
     </div>
   </div>
 </template>
 
 <script>
+import introPlank from '../assets/sprite/svg/intro__welcome_plank.svg'
+
 export default {
-  props: {
-    volunteerOpen: {
-      type: Boolean,
-      default: () => false
-    },
-    mentorOpen: {
-      type: Boolean,
-      default: () => false
-    }
-  },
   data: function () {
     return {
-      isTimeout: {
-        type: Boolean,
-        default: () => {
-          return false
-        }
-      }
+      introPlank
     }
-  },
-  mounted: function () {
-    setTimeout(() => {
-      this.isTimeout = true
-    }, 300)
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import "bulma/bulma.sass";
+$body-font: "Source Sans Pro", sans-serif;
 
+// Desktop CSS
+.intro-container {
+  position: relative;
+  background-image: url('../assets/sprite/png/intro__background.png');
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  min-height: 85.5vw;
+}
+
+.intro-content {
+  padding-top: 15%;
+  position: absolute;
+  // Centering an absolute element
+  left: 0;
+  right: 0;
+  margin: auto;
+  // Must have specific width
+  width: 50%;
+}
+
+.intro-bg {
+  width: 100%;
+  background: linear-gradient(180deg, #485B67 1%, #243745, #566770 75%, #072639 91%);
+}
+
+.intro-header {
+  display: block;
+  margin: auto;
+  //width: 80%;
+}
+
+.intro-p1, .intro-p2 {
+  // Spacing
+  max-width: $tablet;
+  margin: 1em auto 0 auto;
+  // Text
+  text-align: center;
+  font-family: $body-font;
+  font-size: 1.5vw;
+  color: white;
+}
+
+@include until($tablet) {
+  .intro-container {
+    background-image: url('../assets/sprite/png/intro__background_m.png');
+    min-height: 150vw;
+  }
+  .intro-p1, .intro-p2 {
+    font-size: 3vw;
+  }
+}
 </style>

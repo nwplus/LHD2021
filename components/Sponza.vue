@@ -1,42 +1,42 @@
 <template>
   <div class="sponza">
-    <p class="sponsor-title">
-      Sponsors
-    </p>
-    <br>
-    <div id="sponsors-list" class="sponsorCategory">
-      <div v-for="item in listOfTera" :key="item.name" class="sponsorWrapper">
-        <SponsorImage :item="item" />
+    <div id="sponsorList">
+      <div class="sponsorCategory">
+        <div v-for="item in listOfPlatinum" :key="item.name" class="sponsorWrapper">
+          <SponsorImage :item="item" />
+        </div>
+      </div>
+      <div class="sponsorCategory">
+        <div v-for="item in listOfGold" :key="item.name" class="sponsorWrapper">
+          <SponsorImage :item="item" />
+        </div>
+      </div>
+      <div class="sponsorCategory">
+        <div v-for="item in listOfSilver" :key="item.name" class="sponsorWrapper">
+          <SponsorImage :item="item" />
+        </div>
+      </div>
+      <div class="sponsorCategory">
+        <div v-for="item in listOfBronze" :key="item.name" class="sponsorWrapper">
+          <SponsorImage :item="item" />
+        </div>
+      </div>
+      <div class="sponsorCategory">
+        <div v-for="item in listOfInKind" :key="item.name" class="sponsorWrapper">
+          <SponsorImage :item="item" />
+        </div>
       </div>
     </div>
-    <div id="sponsors-list" class="sponsorCategory">
-      <div v-for="item in listOfGiga" :key="item.name" class="sponsorWrapper">
-        <SponsorImage :item="item" />
-      </div>
-    </div>
-    <div id="sponsors-list" class="sponsorCategory">
-      <div v-for="item in listOfMega" :key="item.name" class="sponsorWrapper">
-        <SponsorImage :item="item" />
-      </div>
-    </div>
-    <div id="sponsors-list" class="sponsorCategory">
-      <div v-for="item in listOfKilo" :key="item.name" class="sponsorWrapper">
-        <SponsorImage :item="item" />
-      </div>
-    </div>
-    <div id="sponsors-list" class="sponsorCategory">
-      <div v-for="item in listOfInKind" :key="item.name" class="sponsorWrapper">
-        <SponsorImage :item="item" />
-      </div>
-    </div>
-    <!--  -->
+    <img :src="sponsorSash" class="sponsor-sash" alt="Our Sponsors">
     <BecomeSponsorButton />
   </div>
 </template>
 
 <script>
+import sponsorSash from 'assets/sprite/svg/sponsor__background.svg'
 import SponsorImage from '~/components/SponsorImage'
 import BecomeSponsorButton from '~/components/becomeSponsorButton'
+
 export default {
   components: { SponsorImage, BecomeSponsorButton },
   props: {
@@ -45,26 +45,80 @@ export default {
       required: true
     }
   },
+  data: function () {
+    return {
+      sponsorSash
+    }
+  },
   computed: {
-    listOfTera: function () {
-      return this.items.filter(item => item.rank === 'tera')
+    listOfPlatinum: function () {
+      return this.items.filter(item => item.tier === 'platinum')
     },
-    listOfGiga: function () {
-      return this.items.filter(item => item.rank === 'giga')
+    listOfGold: function () {
+      return this.items.filter(item => item.tier === 'gold')
     },
-    listOfMega: function () {
-      return this.items.filter(item => item.rank === 'mega')
+    listOfSilver: function () {
+      return this.items.filter(item => item.tier === 'silver')
     },
-    listOfKilo: function () {
-      return this.items.filter(item => item.rank === 'kilo')
+    listOfBronze: function () {
+      return this.items.filter(item => item.tier === 'bronze')
     },
     listOfInKind: function () {
-      return this.items.filter(item => item.rank === 'in-kind')
+      return this.items.filter(item => item.tier === 'inKind')
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+@import "bulma/bulma.sass";
 
+//Desktop CSS:
+.sponsorCategory {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.sponsorWrapper {
+  margin: 30px;
+}
+
+.sponza {
+  position: relative;
+  margin-top: 2%;
+  text-align: center;
+}
+
+.sponsor-sash {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+#sponsorList {
+  padding-top: 35%;
+  position: absolute;
+  // Centering an absolute element
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  // Must have specific width
+  width: 60%;
+}
+
+//Mobile CSS:
+@include until($tablet) {
+  .sponsorCategory {
+    flex-direction: column;
+  }
+  .sponsorWrapper {
+    max-width: 300px;
+    margin: 15px;
+  }
+}
 </style>
