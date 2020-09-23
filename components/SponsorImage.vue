@@ -60,7 +60,7 @@ export default {
     max-height: 200px;
   }
 
-  .in-kind {
+  .inKind {
     max-width: 300px;
     max-height: 150px;
   }
