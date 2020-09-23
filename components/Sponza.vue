@@ -52,19 +52,19 @@ export default {
   },
   computed: {
     listOfPlatinum: function () {
-      return this.items.filter(item => item.tier === 'Platinum/Title Sponsor')
+      return this.items.filter(item => item.tier === 'platinum')
     },
     listOfGold: function () {
-      return this.items.filter(item => item.tier === 'Gold')
+      return this.items.filter(item => item.tier === 'gold')
     },
     listOfSilver: function () {
-      return this.items.filter(item => item.tier === 'Silver')
+      return this.items.filter(item => item.tier === 'silver')
     },
     listOfBronze: function () {
-      return this.items.filter(item => item.tier === 'Bronze')
+      return this.items.filter(item => item.tier === 'bronze')
     },
     listOfInKind: function () {
-      return this.items.filter(item => item.tier === 'Inkind')
+      return this.items.filter(item => item.tier === 'inKind')
     }
   }
 }
