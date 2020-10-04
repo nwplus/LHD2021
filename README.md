@@ -1,6 +1,4 @@
-# Website Template
-
-> So we don't have to keep cloning our other websites and possibly forget to change parts. 
+# LHD 2020
 
 ## Build Setup
 

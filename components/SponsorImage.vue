@@ -1,7 +1,7 @@
 <template>
-  <a :href="formatURL(item.url)" class="link" target="_blank" rel="noopener noreferrer">
+  <a :href="formatURL(item.link)" class="link" target="_blank" rel="noopener noreferrer">
     <img
-      :class="{[item.rank]: true}"
+      :class="{[item.tier]: true}"
       :src="item.imgURL"
       :alt="item.name"
     >
@@ -40,27 +40,27 @@ export default {
     transform: scale(1.08);
   }
 
-  .tera {
+  .platinum {
     max-width: 900px;
     max-height: 260px;
   }
 
-  .giga {
+  .gold {
     max-width: 700px;
     max-height: 240px;
   }
 
-  .mega {
+  .silver {
     max-width: 600px;
     max-height: 220px;
   }
 
-  .kilo {
+  .bronze {
     max-width: 500px;
     max-height: 200px;
   }
 
-  .in-kind {
+  .inKind {
     max-width: 300px;
     max-height: 150px;
   }
