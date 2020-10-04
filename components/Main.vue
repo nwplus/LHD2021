@@ -1,14 +1,14 @@
 <template>
   <div id="main-page" v-if="dataReady" style="position: relative; width: 100%;">
-    <NavBar id="navbar" :faq="faqFlag" />
+    <NavBar id="navbar" :faq="faqFlag" :sponsors="sponsorFlag" />
     <section id="mainSection">
       <div class="mainContent">
         <Hero />
-        <Intro id="intro" :intro="intro" />
+        <Intro id="intro" />
         <Events id="events" :items="events" />
         <About id="about" />
         <FAQ id="faq" v-if="faqFlag" :items="FAQs" />
-        <Sponza id="sponza" :items="sponsors" />
+        <Sponza id="sponza" v-if="sponsorFlag" :items="sponsors" />
       </div>
     </section>
     <Footer />
@@ -41,9 +41,9 @@ export default {
     return {
       sponsors: [],
       events: [],
-      intro: {},
       FAQS: [],
       faqFlag: true,
+      sponsorFlag: true,
       dataReady: false
     }
   },
@@ -56,27 +56,17 @@ export default {
     const Sponsors = 'Sponsors'
     const Events = 'Events'
     const FAQ = 'Faq'
-    // functions
     // data
     const data = await fireDb.getWebsiteData()
     const listOfSponsors = await fireDb.getCollection(Sponsors)
     const listOfEvents = await fireDb.getCollection(Events)
     const FaqQuestions = await fireDb.getCollection(FAQ)
 
-    // info: data.WelcomeText,
     this.sponsors = listOfSponsors
-    // outro: data.OutroText,
-    // footer: data.FooterText,
     this.events = listOfEvents
-    this.intro = {
-      text: data.IntroText,
-      introButtonEnabled: data.IntroButtonEnabled,
-      introLink: data.IntroButtonLink,
-      signUpText: data.SignUpText
-    }
     this.FAQs = FaqQuestions
     this.faqFlag = FaqQuestions.length !== 0 && data.featureFlags.faqFlag
-    // ...data.featureFlags
+    this.sponsorFlag = data.featureFlags.sponsorFlag
 
     this.dataReady = true
   }
