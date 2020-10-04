@@ -1,5 +1,6 @@
 <template>
   <div class="hero-section">
+    <img src="../assets/sprite/png/hero__stars.png" class="pulsing" alt="pulsing stars">
     <div class="wooden-post">
       <a v-scroll-to="'#intro'" href="#">
         <img :src="aboutPost" alt="about">
@@ -35,6 +36,7 @@ import lhdLogo from '../assets/sprite/svg/hero__logo.svg'
 import aboutPost from '../assets/sprite/svg/hero__about_post.svg'
 import faqPost from '../assets/sprite/svg/hero__faq_post.svg'
 import sponsorsPost from '../assets/sprite/svg/hero__sponsors_post.svg'
+
 export default {
   props: {},
   data: function () {
@@ -99,6 +101,31 @@ export default {
 $body-font: "Source Sans Pro", sans-serif;
 
 // Desktop CSS
+.pulsing {
+  position: absolute;
+  top: 0;
+  left: 8vw;
+  animation: pulse-black 3s infinite;
+  min-width: 60vw;
+}
+
+@keyframes pulse-black {
+    0% {
+        transform: scale(0.99);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.99);
+        opacity: 0.8;
+    }
+}
+
 .hero-section {
   padding-top: 5%;
   background-image: url("~@/assets/sprite/png/hero__background.png");
