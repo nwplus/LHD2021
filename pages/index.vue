@@ -1,6 +1,6 @@
 <template>
   <div>
-    <transition name="fade">
+    <transition name="fade" mode="in-out">
       <async-component />
     </transition>
   </div>
@@ -14,7 +14,7 @@ const AsyncComponent = () => ({
   component: new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(Main)
-    }, 1500)
+    }, 1000)
   }),
   loading: Loading,
   delay: 1
@@ -34,7 +34,7 @@ export default {
 }
 
 .fade-leave-active {
-  transition: opacity 1s;
+  transition: opacity 1.5s;
 }
 
 .fade-enter, .fade-leave-to {

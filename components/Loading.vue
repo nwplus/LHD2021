@@ -28,9 +28,11 @@ $red: #F73B01;
 $animationtime: 1.5s;
 
 .background {
+  position: fixed;
   width: 100vw;
   height: 100vh;
   background-color: $dark-blue;
+  z-index: 1000000;
 
   .fire {
     position: absolute;
