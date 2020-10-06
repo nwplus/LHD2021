@@ -1,10 +1,19 @@
 <template>
   <div class="mainContainer">
+    <lottie id="waterfall" :options="options" style="position: absolute" />
     <div class="no-overflow rows is-3-tablet">
-      <div v-for="item in sortedEvents" :key="item.order" :class="{ flipped: isFlipped(item) }">
+      <div
+        v-for="item in sortedEvents"
+        :key="item.order"
+        :class="{ flipped: isFlipped(item) }"
+      >
         <div class="events row">
           <div class="image-container">
-            <img :src="getImageURL(item)" :alt="`${item.title}, ${item.date}`" class="image">
+            <img
+              :src="getImageURL(item)"
+              :alt="`${item.title}, ${item.date}`"
+              class="image"
+            >
           </div>
           <div class="blob-container">
             <img :src="arrow" alt="right-arrow" class="arrow">
@@ -19,9 +28,18 @@
 </template>
 
 <script>
+import lottie from 'vue-lottie'
 import orderBy from 'lodash.orderby'
 import arrow from '../assets/sprite/svg/events__arrow.svg'
+import boat from '../assets/sprite/png/events__boat.png'
+import animationData from '../assets/animation/events__waterfall.json'
+
+animationData.assets[0].u = boat
+
 export default {
+  components: {
+    lottie
+  },
   props: {
     items: {
       type: Array,
@@ -30,7 +48,13 @@ export default {
   },
   data: function () {
     return {
-      arrow
+      arrow,
+      boat,
+      options: {
+        animationData
+      },
+      animationSpeed: 1,
+      animate: screen.width > 768
     }
   },
   computed: {
@@ -61,7 +85,7 @@ $heading-font: "Caveat Brush";
 $body-font: "Source Sans Pro", sans-serif;
 
 .mainContainer {
-  background-image: url("~@/assets/sprite/png/events__background.png");
+  background-image: url("~@/assets/sprite/svg/events__background.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100vw;
@@ -125,10 +149,16 @@ $body-font: "Source Sans Pro", sans-serif;
   }
   .flipped {
     .row {
-      bottom: 30%;
+      bottom: 21%;
       position: absolute;
       right: $gap;
     }
+  }
+}
+
+#waterfall {
+  @include until($tablet) {
+    display: none;
   }
 }
 </style>
