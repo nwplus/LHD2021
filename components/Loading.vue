@@ -41,14 +41,13 @@ $animationtime: 1.5s;
     transform: translate(-50%, -25%);
     height: 20vw;
     width: 20vw;
-    //background-color:$red;
+
     .flames {
       position: absolute;
       bottom: 40%;
       left: 50%;
       width: 60%;
       height: 60%;
-      //background-color:$red;
       transform: translateX(-50%) rotate(45deg);
 
       .flame {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="fade" mode="in-out">
-      <async-component />
+      <LoadPage />
     </transition>
   </div>
 </template>
@@ -23,7 +23,7 @@ const AsyncComponent = () => ({
 export default {
   name: 'IndexVue',
   components: {
-    'async-component': AsyncComponent
+    LoadPage: AsyncComponent
   }
 }
 </script>
