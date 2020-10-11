@@ -1,5 +1,5 @@
 <template>
-  <div class="mainContainer">
+  <div class="events-container">
     <lottie id="waterfall" :options="options" style="position: absolute" />
     <div class="no-overflow rows is-3-tablet">
       <div
@@ -84,13 +84,14 @@ $white: #ffffff;
 $heading-font: "Caveat Brush";
 $body-font: "Source Sans Pro", sans-serif;
 
-.mainContainer {
+.events-container {
   background-image: url("~@/assets/sprite/svg/events__background.svg");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: 100vw;
   min-height: 133vw;
   position: relative;
+  overflow: hidden;
   &::before {
     display: block;
     content: "";
@@ -100,7 +101,7 @@ $body-font: "Source Sans Pro", sans-serif;
     z-index: -1;
   }
   @include until($tablet) {
-    background-image: url("~@/assets/sprite/png/events__background_sm.png");
+    background-image: url("~@/assets/sprite/svg/events__background_sm.svg");
     min-height: 237vw;
   }
 }
@@ -158,7 +159,7 @@ $body-font: "Source Sans Pro", sans-serif;
 
 #waterfall {
   @include until($tablet) {
-    display: none;
+    transform: scale(1.5) translate(-8.5vw, 0);
   }
 }
 </style>
