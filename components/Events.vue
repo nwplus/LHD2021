@@ -31,7 +31,7 @@
 import lottie from 'vue-lottie'
 import orderBy from 'lodash.orderby'
 import arrow from '../assets/sprite/svg/events__arrow.svg'
-import boat from '../assets/sprite/png/events__boat.png'
+import boat from '../assets/sprite/svg/events__boat.svg'
 import animationData from '../assets/animation/events__waterfall.json'
 
 animationData.assets[0].u = boat
