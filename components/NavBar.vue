@@ -11,7 +11,7 @@
         <div v-on:click="toggle" class="sidebar-menu">
           <a v-scroll-to="'#events'" href="#" class="navbar-item">About</a>
           <a v-if="faq" v-scroll-to="'#faq'" href="#" class="navbar-item">FAQ</a>
-          <a v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
+          <a v-if="sponsors" v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
           <a href="https://lhd-2019.nwplus.io/" rel="noopener" target="_blank" class="navbar-item">2019</a>
         </div>
       </div>
@@ -32,7 +32,7 @@
           <div class="buttons">
             <a v-scroll-to="'#events'" href="#" class="navbar-item">About</a>
             <a v-if="faq" v-scroll-to="'#faq'" href="#" class="navbar-item">FAQ</a>
-            <a v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
+            <a v-if="sponsors" v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
             <a
               href="https://lhd-2019.nwplus.io/"
               rel="noopener"
@@ -61,6 +61,10 @@ import nwLogo from '../assets/nwlogos/nwplus-logo.svg'
 export default {
   props: {
     faq: {
+      required: true,
+      type: Boolean
+    },
+    sponsors: {
       required: true,
       type: Boolean
     }
