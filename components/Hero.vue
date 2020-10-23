@@ -15,7 +15,7 @@
     <p class="hero-presents-text">
       nwPlus presents
     </p>
-    <img :src="lhdLogo" class="hero-lhd-logo">
+    <img :src="hackCampLogo" class="hero-lhd-logo">
     <p class="hero-presents-text">
       Learn. Build. Share.
     </p>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import lhdLogo from '../assets/sprite/svg/hero__logo.svg'
+import hackCampLogo from '../assets/sprite/svg/hero__logo.svg'
 import aboutPost from '../assets/sprite/svg/hero__about_post.svg'
 import faqPost from '../assets/sprite/svg/hero__faq_post.svg'
 import sponsorsPost from '../assets/sprite/svg/hero__sponsors_post.svg'
@@ -41,7 +41,7 @@ export default {
   props: {},
   data: function () {
     return {
-      lhdLogo,
+      hackCampLogo,
       aboutPost,
       faqPost,
       sponsorsPost,
@@ -158,7 +158,8 @@ $body-font: "Source Sans Pro", sans-serif;
 }
 
 .hero-presents-text {
-  padding-top: 10px;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 .hero-mailing-list-text {
@@ -168,8 +169,8 @@ $body-font: "Source Sans Pro", sans-serif;
 }
 
 .hero-lhd-logo {
-  width: 146px;
-  height: 179px;
+  width: 346px;
+  height: 136px;
 }
 
 .hero-email-subscribe {
@@ -228,8 +229,8 @@ $body-font: "Source Sans Pro", sans-serif;
   }
 
   .hero-lhd-logo {
-    width: 122.79px;
-    height: 160px;
+    width: 300px;
+    height: 118px;
   }
 
   .hero-mailing-list-text {

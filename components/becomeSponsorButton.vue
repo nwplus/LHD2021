@@ -3,7 +3,7 @@
     <!-- TODO: change sponsor link -->
     <a
       id="sponzaButton"
-      href="mailto:logistics@nwplus.io?subject=LHD Sponsorship"
+      href="mailto:logistics@nwplus.io?subject=HackCamp Sponsorship"
     >
       Become a Sponsor
     </a>
