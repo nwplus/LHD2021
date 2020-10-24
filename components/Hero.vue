@@ -103,8 +103,9 @@ $body-font: "Source Sans Pro", sans-serif;
 // Desktop CSS
 .pulsing {
   position: absolute;
+  z-index: 1;
   top: 0;
-  left: 8vw;
+  left: 14vw;
   animation: pulse-black 3s infinite;
   min-width: 60vw;
 }
@@ -158,22 +159,30 @@ $body-font: "Source Sans Pro", sans-serif;
 }
 
 .hero-presents-text {
+  position: relative;
+  z-index: 2;
   padding-top: 30px;
   padding-bottom: 10px;
 }
 
 .hero-mailing-list-text {
+  position: relative;
+  z-index: 2;
   font-size: 16px;
   line-height: 20px;
   padding: 10px 0;
 }
 
 .hero-lhd-logo {
+  position: relative;
+  z-index: 2;
   width: 346px;
   height: 136px;
 }
 
 .hero-email-subscribe {
+  position: relative;
+  z-index: 2;
   font-size: 16px;
   line-height: 20px;
 

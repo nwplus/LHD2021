@@ -34,7 +34,7 @@ $body-font: "Source Sans Pro", sans-serif;
   background-image: url('../assets/sprite/png/intro__background.png');
   background-repeat: no-repeat;
   background-size: 100vw;
-  min-height: 85.5vw;
+  min-height: 102vw;
 }
 
 .intro-content {

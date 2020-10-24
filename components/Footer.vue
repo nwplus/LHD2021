@@ -112,7 +112,7 @@
         <p class="copyright-text">
           Organized and held by nwPlus
           <br>
-          Copyright © UBC Local Hack Day 2020
+          Copyright © HackCamp 2020
         </p>
       </div>
     </div>
