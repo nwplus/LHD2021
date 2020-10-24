@@ -11,7 +11,7 @@
         <div v-on:click="toggle" class="sidebar-menu">
           <a v-scroll-to="'#events'" href="#" class="navbar-item">About</a>
           <a v-if="faq" v-scroll-to="'#faq'" href="#" class="navbar-item">FAQ</a>
-          <a v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
+          <a v-if="sponsors" v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
           <a href="https://lhd-2019.nwplus.io/" rel="noopener" target="_blank" class="navbar-item">2019</a>
         </div>
       </div>
@@ -23,18 +23,6 @@
       role="navigation"
       aria-label="main navigation"
     >
-      <a
-        href="https://mlh.io/seasons/na-2020/events?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2020-season&utm_content=black"
-        target="_blank"
-        rel="noopener"
-      >
-        <img
-          id="MLH-badge"
-          src="https://s3.amazonaws.com/logged-assets/trust-badge/2020/mlh-trust-badge-2020-black.svg"
-          alt="Major League Hacking 2020 Hackathon Season"
-          class="navbar-item"
-        >
-      </a>
       <a v-on:click="toggle" class="menu-icon" href="#">
         <img id="hamburger" :src="hamburger" alt="hamburger menu">
       </a>
@@ -44,7 +32,7 @@
           <div class="buttons">
             <a v-scroll-to="'#events'" href="#" class="navbar-item">About</a>
             <a v-if="faq" v-scroll-to="'#faq'" href="#" class="navbar-item">FAQ</a>
-            <a v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
+            <a v-if="sponsors" v-scroll-to="'#sponza'" href="#" class="navbar-item">Sponsors</a>
             <a
               href="https://lhd-2019.nwplus.io/"
               rel="noopener"
@@ -73,6 +61,10 @@ import nwLogo from '../assets/nwlogos/nwplus-logo.svg'
 export default {
   props: {
     faq: {
+      required: true,
+      type: Boolean
+    },
+    sponsors: {
       required: true,
       type: Boolean
     }
@@ -150,6 +142,7 @@ $white: #ffffff;
   padding: 0;
   visibility: visible;
   transition: 0.5s ease-in-out;
+  height: 12.5vh;
 }
 .navbar-item {
   display: inline-block;
@@ -180,12 +173,6 @@ a.navbar-item:focus-within {
   margin-right: 78px;
   margin-top: -15px;
 }
-#MLH-badge {
-  max-height: none;
-  height: 120px;
-  width: auto;
-  top: -15%;
-}
 #navbar-logo {
   max-height: none;
   height: 45px;
@@ -213,12 +200,6 @@ a.navbar-item:focus-within {
 @include until($desktop) {
   .navbar {
     background: none;
-  }
-  #MLH-badge {
-    height: 100px;
-    position: absolute;
-    top: -15px;
-    left: 0%;
   }
   #navbar-logo {
     height: 30px;

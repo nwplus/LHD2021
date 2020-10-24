@@ -17,11 +17,11 @@ function metaMarkup({ name, description, image, url }) {
 function meta({ route, html }) {
   // meta tags (fill in your info here / dynamic per route)
   const metaTags = {
-    name: 'UBC Local Hack Day 2020',
+    name: 'HackCamp 2020',
     description:
-      'At UBC Local Hack Day, we welcome hundreds of tech newbies to learn new skills, build cool projects, and share new experiences! We are part of an international celebration of diversity, accessibility, and inclusivity for newcomers in the Greater Vancouver hackathon and tech community.',
-    image: 'https://lhd.nwplus.io/thumbnail.png',
-    url: 'https://lhd.nwplus.io'
+      'At HackCamp, we welcome hundreds of tech newbies to learn new skills, build cool projects, and share new experiences! We are part of an international celebration of diversity, accessibility, and inclusivity for newcomers in the Greater Vancouver hackathon and tech community.',
+    image: 'https://hackcamp.nwplus.io/thumbnail.png',
+    url: 'https://hackcamp.nwplus.io'
   }
 
   // Load Nuxt generared HTML

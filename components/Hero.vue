@@ -1,5 +1,6 @@
 <template>
   <div class="hero-section">
+    <img src="../assets/sprite/png/hero__stars.png" class="pulsing" alt="pulsing stars">
     <div class="wooden-post">
       <a v-scroll-to="'#intro'" href="#">
         <img :src="aboutPost" alt="about">
@@ -14,7 +15,7 @@
     <p class="hero-presents-text">
       nwPlus presents
     </p>
-    <img :src="lhdLogo" class="hero-lhd-logo">
+    <img :src="hackCampLogo" class="hero-lhd-logo">
     <p class="hero-presents-text">
       Learn. Build. Share.
     </p>
@@ -31,15 +32,16 @@
 </template>
 
 <script>
-import lhdLogo from '../assets/sprite/svg/hero__logo.svg'
+import hackCampLogo from '../assets/sprite/svg/hero__logo.svg'
 import aboutPost from '../assets/sprite/svg/hero__about_post.svg'
 import faqPost from '../assets/sprite/svg/hero__faq_post.svg'
 import sponsorsPost from '../assets/sprite/svg/hero__sponsors_post.svg'
+
 export default {
   props: {},
   data: function () {
     return {
-      lhdLogo,
+      hackCampLogo,
       aboutPost,
       faqPost,
       sponsorsPost,
@@ -99,6 +101,32 @@ export default {
 $body-font: "Source Sans Pro", sans-serif;
 
 // Desktop CSS
+.pulsing {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 14vw;
+  animation: pulse-black 3s infinite;
+  min-width: 60vw;
+}
+
+@keyframes pulse-black {
+    0% {
+        transform: scale(0.99);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.99);
+        opacity: 0.8;
+    }
+}
+
 .hero-section {
   padding-top: 5%;
   background-image: url("~@/assets/sprite/png/hero__background.png");
@@ -119,6 +147,7 @@ $body-font: "Source Sans Pro", sans-serif;
   display: flex;
   flex-direction: column;
   position: absolute;
+  z-index: 3;
   top: 25vw;
   left: 8vw;
   width: 17vw;
@@ -131,21 +160,30 @@ $body-font: "Source Sans Pro", sans-serif;
 }
 
 .hero-presents-text {
-  padding-top: 10px;
+  position: relative;
+  z-index: 2;
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
 
 .hero-mailing-list-text {
+  position: relative;
+  z-index: 2;
   font-size: 16px;
   line-height: 20px;
   padding: 10px 0;
 }
 
 .hero-lhd-logo {
-  width: 146px;
-  height: 179px;
+  position: relative;
+  z-index: 2;
+  width: 346px;
+  height: 136px;
 }
 
 .hero-email-subscribe {
+  position: relative;
+  z-index: 2;
   font-size: 16px;
   line-height: 20px;
 
@@ -201,8 +239,8 @@ $body-font: "Source Sans Pro", sans-serif;
   }
 
   .hero-lhd-logo {
-    width: 122.79px;
-    height: 160px;
+    width: 300px;
+    height: 118px;
   }
 
   .hero-mailing-list-text {

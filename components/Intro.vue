@@ -3,10 +3,10 @@
     <div class="intro-content">
       <img :src="introPlank" class="intro-header">
       <p class="intro-p1">
-        UBC Local Hack Day revolves around <b>inclusivity, diversity, and accessibility</b> — we want you to bring your unique perspectives and experiences to the table!
+        HackCamp revolves around <b>inclusivity, diversity, and accessibility</b> — we want you to bring your unique perspectives and experiences to the table!
       </p>
       <p class="intro-p2">
-        Over the past 3 years, UBC’s Local Hack Day focused on encouraging beginners and people who are curious about technology to work on a project that focuses on these three main pillars.
+        Over the past 3 years, HackCamp, or formerly UBC Local Hack Day, has been focused on encouraging beginners and people who are curious about technology to work on a project that focuses on these three main pillars.
       </p>
     </div>
   </div>
@@ -34,7 +34,7 @@ $body-font: "Source Sans Pro", sans-serif;
   background-image: url('../assets/sprite/png/intro__background.png');
   background-repeat: no-repeat;
   background-size: 100vw;
-  min-height: 85.5vw;
+  min-height: 102vw;
 }
 
 .intro-content {

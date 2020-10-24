@@ -1,4 +1,4 @@
-# LHD 2020
+# HackCamp 2020
 
 ## Build Setup
 

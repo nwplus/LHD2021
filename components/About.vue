@@ -3,9 +3,7 @@
     <div class="about-content">
       <img :src="aboutPlank" class="about-header">
       <p class="about-p1">
-        Last year, Learn and Build Day events were held months apart.
-        This year, we plan on running the event as a virtual conference weekend,
-        with a focus on learning and workshops on the first day, and building and hacking on the second day.
+        2020, as many would agree, is a year of change.<br><br>Last year, HackCamp was called Local Hack Day. We've decided to reformat Local Hack Day as a virtual conference weekend, with a focus on learning and workshops on the first day, and building and hacking on the second day — now dubbed HackCamp.
       </p>
       <p class="about-p2">
         This year, due to the COVID-19 pandemic, we will be holding our event in a virtual format.
