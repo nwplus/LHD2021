@@ -147,6 +147,7 @@ $body-font: "Source Sans Pro", sans-serif;
   display: flex;
   flex-direction: column;
   position: absolute;
+  z-index: 3;
   top: 25vw;
   left: 8vw;
   width: 17vw;
