@@ -19,6 +19,7 @@
     <p class="hero-presents-text">
       Learn. Build. Share.
     </p>
+    <!-- MAILING LIST SUBSCRIPTION FORM
     <p class="hero-mailing-list-text">
       Join our mailing list for updates about our events!
     </p>
@@ -27,6 +28,7 @@
       <button :class="{active: email}" @click="submit">
         Subscribe
       </button>
+    </div> -->
     </div>
   </div>
 </template>
