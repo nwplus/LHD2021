@@ -29,6 +29,15 @@
         Subscribe
       </button>
     </div> -->
+    <p class="hero-mailing-list-text">
+      <span class="hero-mailing-list-text bold">
+        Registration is now live!</span><br>
+      Learn, Build, and Share with us at HackCamp 2020.
+    </p>
+    <div class="register-btn-container">
+      <button :class="hi" @click="register">
+        REGISTER HERE
+      </button>
     </div>
   </div>
 </template>
@@ -180,6 +189,10 @@ $body-font: "Source Sans Pro", sans-serif;
   font-size: 16px;
   line-height: 20px;
   padding: 10px 0;
+  span {
+    line-height: 28px;
+    font-weight: bold;
+  }
 }
 
 .hero-lhd-logo {
@@ -223,6 +236,33 @@ $body-font: "Source Sans Pro", sans-serif;
     outline: none;
     transition: 0.25s;
     &.active {
+      background: #ffbc96;
+      color: #172b3b;
+    }
+  }
+}
+
+.register-btn-container {
+  position: relative;
+  z-index: 2;
+  font-size: 16px;
+  line-height: 20px;
+
+  button {
+    cursor: pointer;
+    width: 160px;
+    height: 52px;
+    background: rgba(6, 26, 44, 0.76);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 33px;
+    color: white;
+    outline: none;
+    transition: 0.25s;
+    &:active {
+      background: #ffbc96;
+      color: #172b3b;
+    }
+    &:hover {
       background: #ffbc96;
       color: #172b3b;
     }
