@@ -56,6 +56,12 @@ export default {
     }, 300)
   },
   methods: {
+    register() {
+      window.open(
+        'https://forms.gle/LyR1858VvMfhbVFb7',
+        '_blank'
+      )
+    },
     async submit() {
       try {
         await this.$axios.post(process.env.mailingListUrl, {
