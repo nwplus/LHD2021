@@ -19,6 +19,7 @@
     <p class="hero-presents-text">
       Learn. Build. Share.
     </p>
+    <!-- MAILING LIST SUBSCRIPTION FORM
     <p class="hero-mailing-list-text">
       Join our mailing list for updates about our events!
     </p>
@@ -26,6 +27,16 @@
       <input v-model="email" type="email" placeholder="Enter email here....">
       <button :class="{active: email}" @click="submit">
         Subscribe
+      </button>
+    </div> -->
+    <p class="hero-mailing-list-text">
+      <span class="hero-mailing-list-text bold">
+        Registration is now live!</span><br>
+      Learn, Build, and Share with us at HackCamp 2020.
+    </p>
+    <div class="register-btn-container">
+      <button @click="register">
+        REGISTER HERE
       </button>
     </div>
   </div>
@@ -54,6 +65,12 @@ export default {
     }, 300)
   },
   methods: {
+    register() {
+      window.open(
+        'https://forms.gle/LyR1858VvMfhbVFb7',
+        '_blank'
+      )
+    },
     async submit() {
       try {
         await this.$axios.post(process.env.mailingListUrl, {
@@ -172,6 +189,10 @@ $body-font: "Source Sans Pro", sans-serif;
   font-size: 16px;
   line-height: 20px;
   padding: 10px 0;
+  span {
+    line-height: 28px;
+    font-weight: bold;
+  }
 }
 
 .hero-lhd-logo {
@@ -221,6 +242,35 @@ $body-font: "Source Sans Pro", sans-serif;
   }
 }
 
+.register-btn-container {
+  position: relative;
+  z-index: 2;
+  font-size: 16px;
+  line-height: 20px;
+
+  button {
+    cursor: pointer;
+    height: 52px;
+    background: rgba(6, 26, 44, 0.76);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 33px;
+    color: white;
+    outline: none;
+    transition: 0.25s;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0px 36px;
+    &:active {
+      background: #ffbc96;
+      color: #172b3b;
+    }
+    &:hover {
+      background: #ffbc96;
+      color: #172b3b;
+    }
+  }
+}
+
 // Mobile CSS
 @include until($tablet) {
   .hero-section {
@@ -247,6 +297,12 @@ $body-font: "Source Sans Pro", sans-serif;
     font-size: 14px;
     line-height: 10px;
     padding: 10px 0;
+  }
+
+  .register-btn-container {
+    button{
+      font-size: 14px;
+    }
   }
 
   .hero-email-subscribe {
