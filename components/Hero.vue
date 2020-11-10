@@ -35,7 +35,7 @@
       Learn, Build, and Share with us at HackCamp 2020.
     </p>
     <div class="register-btn-container">
-      <button :class="hi" @click="register">
+      <button @click="register">
         REGISTER HERE
       </button>
     </div>
@@ -258,6 +258,7 @@ $body-font: "Source Sans Pro", sans-serif;
     color: white;
     outline: none;
     transition: 0.25s;
+    font-weight: bold;
     &:active {
       background: #ffbc96;
       color: #172b3b;
