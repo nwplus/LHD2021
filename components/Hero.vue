@@ -250,7 +250,6 @@ $body-font: "Source Sans Pro", sans-serif;
 
   button {
     cursor: pointer;
-    width: 160px;
     height: 52px;
     background: rgba(6, 26, 44, 0.76);
     border: 1px solid rgba(0, 0, 0, 0.08);
@@ -259,6 +258,8 @@ $body-font: "Source Sans Pro", sans-serif;
     outline: none;
     transition: 0.25s;
     font-weight: bold;
+    font-size: 18px;
+    padding: 0px 36px;
     &:active {
       background: #ffbc96;
       color: #172b3b;
@@ -296,6 +297,12 @@ $body-font: "Source Sans Pro", sans-serif;
     font-size: 14px;
     line-height: 10px;
     padding: 10px 0;
+  }
+
+  .register-btn-container {
+    button{
+      font-size: 14px;
+    }
   }
 
   .hero-email-subscribe {
