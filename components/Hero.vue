@@ -17,6 +17,7 @@
     </p>
     <img :src="hackCampLogo" class="hero-lhd-logo">
     <p class="hero-presents-text">
+      Powered by <a href="teck.com">Teck Resources</a>. <br>
       Learn. Build. Share.
     </p>
     <!-- MAILING LIST SUBSCRIPTION FORM
@@ -270,6 +271,16 @@ $body-font: "Source Sans Pro", sans-serif;
     }
   }
 }
+
+  a {
+    color: white;
+    text-decoration: underline;
+    transition-duration: 0.2s;
+  }
+
+  a:hover {
+    color: #FFBC96;
+  }
 
 // Mobile CSS
 @include until($tablet) {
