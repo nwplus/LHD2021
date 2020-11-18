@@ -17,7 +17,7 @@
     </p>
     <img :src="hackCampLogo" class="hero-lhd-logo">
     <p class="hero-presents-text">
-      Powered by <a href="teck.com">Teck Resources</a>. <br>
+      Powered by <a href="https://teck.com">Teck Resources</a>. <br>
       Learn. Build. Share.
     </p>
     <!-- MAILING LIST SUBSCRIPTION FORM
