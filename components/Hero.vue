@@ -32,13 +32,13 @@
     </div> -->
     <p class="hero-mailing-list-text">
       <span class="hero-mailing-list-text bold">
-        Registration is now live!</span><br>
+        Registration has closed!</span><br>
       Learn, Build, and Share with us at HackCamp 2020.
     </p>
     <div class="register-btn-container">
-      <button @click="register">
+      <!-- <button @click="register">
         REGISTER HERE
-      </button>
+      </button> -->
     </div>
   </div>
 </template>
@@ -187,7 +187,7 @@ $body-font: "Source Sans Pro", sans-serif;
 .hero-mailing-list-text {
   position: relative;
   z-index: 2;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 20px;
   padding: 10px 0;
   span {
